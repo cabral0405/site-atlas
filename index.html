@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -35,7 +35,7 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, .font-serif {
+    h1, h2, h3, h4, .font-serif {
       font-family: 'Playfair Display', serif;
     }
 
@@ -84,8 +84,9 @@
     }
 
     .brand-logo img {
-      height: 32px;
+      height: 36px;
       width: auto;
+      object-fit: contain;
     }
 
     .brand-logo .dot {
@@ -125,7 +126,7 @@
       cursor: pointer;
     }
 
-    /* CONTEÚDO PRINCIPAL (HERO + GUIA DO BARISTA) */
+    /* MAIN GRID (HERO + GUIA DO BARISTA) */
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -136,30 +137,28 @@
       align-items: start;
     }
 
-    /* CARD DE LOGO E FRASES (HERO ESQUERDA) */
+    /* HERO ESQUERDA */
     .hero-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
-      padding: 60px 40px;
+      padding: 50px 40px;
       text-align: center;
       margin-bottom: 25px;
     }
 
     .hero-card img.hero-logo-img {
-      max-width: 180px;
+      max-width: 190px;
       height: auto;
-      margin-bottom: 25px;
+      margin: 0 auto 20px auto;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .hero-card .hero-subtitle {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       color: var(--brown-accent);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     .tag-location {
@@ -176,19 +175,18 @@
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 2.8rem;
       line-height: 1.15;
       color: var(--text-dark);
       font-weight: 400;
-      margin-bottom: 20px;
     }
 
-    /* CARD DO RITUAL DE PREPARO (DIREITA) */
+    /* GUIA DO BARISTA DIREITA */
     .barista-card {
       background-color: #FFFFFF;
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
-      padding: 40px;
+      padding: 35px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
@@ -196,7 +194,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       border-bottom: 1px solid var(--border-subtle);
       padding-bottom: 15px;
     }
@@ -210,60 +208,65 @@
     }
 
     .barista-title {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       color: var(--text-dark);
       margin-top: 5px;
     }
 
-    .time-badge {
+    .ratio-badge {
       background: var(--bg-warm);
       border: 1px solid var(--border-subtle);
       padding: 4px 10px;
       font-size: 0.75rem;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--brown-accent);
       border-radius: 4px;
     }
 
     .barista-desc {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .method-box {
       background-color: var(--bg-card-light);
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      padding: 20px;
-      margin-bottom: 15px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+
+    .method-box-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 4px;
     }
 
     .method-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--text-dark);
+    }
+
+    .method-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      background: #EFE8DC;
+      padding: 3px 8px;
+      border-radius: 3px;
+      color: var(--brown-top);
+      text-transform: uppercase;
     }
 
     .method-details {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 4px;
     }
 
-    .method-tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      background: #EFE8DC;
-      padding: 4px 8px;
-      border-radius: 3px;
-      color: var(--text-dark);
-    }
-
-    /* PRODUTOS */
+    /* SEÇÃO DE PRODUTOS */
     .products-section {
       padding: 60px 8%;
       max-width: 1400px;
@@ -271,7 +274,7 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       text-align: center;
       margin-bottom: 40px;
       color: var(--text-dark);
@@ -279,7 +282,7 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 30px;
     }
 
@@ -287,46 +290,116 @@
       background: #FFFFFF;
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
-      padding: 30px;
+      padding: 35px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .product-card h3 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: var(--text-dark);
     }
 
     .product-price {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--brown-accent);
       font-weight: 600;
-      margin: 10px 0;
+      margin: 8px 0 15px 0;
+    }
+
+    .tech-specs {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--bg-card-light);
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .sensory-profile {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .product-card label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-top);
+      display: block;
+      margin-top: 12px;
     }
 
     .product-card select {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
+      margin-top: 6px;
       background: var(--bg-warm);
       border: 1px solid var(--border-subtle);
       border-radius: 4px;
       font-family: inherit;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      outline: none;
     }
 
     .btn-buy {
-      margin-top: 20px;
+      margin-top: 22px;
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background: var(--brown-top);
       color: #FFF;
       border: none;
       border-radius: 4px;
       font-weight: 600;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-buy:hover {
+      background: var(--brown-accent);
+    }
+
+    /* MANIFESTO */
+    .manifesto-section {
+      padding: 80px 8%;
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .manifesto-section h2 {
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .manifesto-section p {
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 8%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     @media (max-width: 900px) {
@@ -338,7 +411,7 @@
 </head>
 <body>
 
-  <!-- BARRA DE ANÚNCIO TOP -->
+  <!-- BARRA SUPERIOR DE ANÚNCIO -->
   <div class="announcement-bar">
     ✨ Primeira vez na Atlas Café? Use o cupom <span class="badge">RITUAL10</span> para 10% OFF no seu primeiro pedido.
   </div>
@@ -346,7 +419,7 @@
   <!-- CABEÇALHO CLARO -->
   <header>
     <a href="#" class="brand-logo">
-      <span class="dot"></span>
+      <img src="logo.png" alt="Atlas Café Logo" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
       <span>ATLAS CAFÉ</span>
     </a>
     <nav>
@@ -356,51 +429,70 @@
         <li><a href="#manifesto">Manifesto</a></li>
       </ul>
     </nav>
-    <button class="btn-header-cart">Carrinho</button>
+    <button class="btn-header-cart" onclick="document.getElementById('produtos').scrollIntoView({behavior: 'smooth'})">Comprar</button>
   </header>
 
-  <!-- SEÇÃO PRINCIPAL (EXATAMENTE COMO NA IMAGEM 2 + LOGO DA HERO) -->
+  <!-- MAIN GRID (HERO + GUIA DO BARISTA) -->
   <main class="main-grid">
     
-    <!-- LADO ESQUERDO: SEÇÃO HERO COM LOGO E FRASES ORIGINAIS -->
+    <!-- ESQUERDA: HERO CARD -->
     <div>
       <div class="hero-card">
-        <!-- AQUI ESTÁ A LOGO NA HERO SECTION -->
         <img src="logo.png" alt="Atlas Café Logo" class="hero-logo-img" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
         <p class="hero-subtitle">"Novos caminhos, o mesmo ritual."</p>
       </div>
 
       <span class="tag-location">Torrefação Artesanal em Garopaba/SC</span>
 
-      <h1 class="hero-title">O café como ele deve ser:</h1>
+      <h1 class="hero-title">O café como ele deve ser: puro, fresco e vivo.</h1>
     </div>
 
-    <!-- LADO DIREITO: GUIA DO BARISTA -->
+    <!-- DIREITA: GUIA DO BARISTA -->
     <div class="barista-card">
       <div class="barista-header">
         <div>
           <span class="barista-subtitle">Guia do Barista</span>
           <h2 class="barista-title">O Ritual de Preparo</h2>
         </div>
-        <span class="time-badge">1:15</span>
+        <span class="ratio-badge">Proporção 1:15</span>
       </div>
 
-      <p class="barista-desc">Extraia o melhor dos grãos da Atlas Café respeitando a proporção e moagem ideal para o seu momento de presença.</p>
+      <p class="barista-desc">Guia prático para seleção de moagem e preparo ideal na extração do seu café:</p>
 
+      <!-- MÉTODO 1 -->
       <div class="method-box">
-        <div>
-          <div class="method-name">Coado (V60 / Melitta)</div>
-          <div class="method-details">Moagem Média • Proporção 15g p/ 225ml<br><i>Realça acidez limpa, notas florais e doçura.</i></div>
+        <div class="method-box-header">
+          <span class="method-name">Fina / Espresso</span>
+          <span class="method-tag">Pressão</span>
         </div>
-        <span class="method-tag">V60</span>
+        <div class="method-details">Moka / Cafeteira Italiana, Espresso Doméstico.</div>
       </div>
 
+      <!-- MÉTODO 2 -->
       <div class="method-box">
-        <div>
-          <div class="method-name">Prensa Francesa</div>
-          <div class="method-details">Moagem Grossa • Infusão de 4 min<br><i>Corpo denso, textura aveludada e notas de chocolate.</i></div>
+        <div class="method-box-header">
+          <span class="method-name">Média / Coados</span>
+          <span class="method-tag">Filtrados</span>
         </div>
-        <span class="method-tag">Prensa</span>
+        <div class="method-details">V60, Melitta, Chemex, Aeropress, Kalita Wave.</div>
+      </div>
+
+      <!-- MÉTODO 3 -->
+      <div class="method-box">
+        <div class="method-box-header">
+          <span class="method-name">Grossa / Infusão</span>
+          <span class="method-tag">Imersão</span>
+        </div>
+        <div class="method-details">Prensa Francesa, Cold Brew (Café Gelado).</div>
+      </div>
+
+      <!-- MÉTODO 4 -->
+      <div class="method-box">
+        <div class="method-box-header">
+          <span class="method-name">Em Grãos</span>
+          <span class="method-tag">Moinho</span>
+        </div>
+        <div class="method-details">Para quem mói na hora e preserva o frescor máximo.</div>
       </div>
     </div>
 
@@ -413,52 +505,74 @@
       
       <!-- SIRIUS -->
       <div class="product-card">
-        <h3>Sirius</h3>
-        <div class="product-price">R$ 48,00</div>
-        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Catuaí Vermelho | Notas de morango, chocolate e cereja.</p>
-        
-        <label style="font-size:0.75rem; font-weight:600;">EMBALAGEM</label>
-        <select id="emb-sirius">
-          <option>250g (Grãos)</option>
-          <option>100g</option>
-          <option>500g</option>
-          <option>1kg</option>
-          <option>Drip Coffee</option>
-        </select>
+        <div>
+          <h3>Sirius</h3>
+          <div class="product-price">R$ 48,00</div>
 
-        <label style="font-size:0.75rem; font-weight:600; margin-top:10px; display:block;">MOAGEM</label>
-        <select id="moag-sirius">
-          <option>Em Grãos</option>
-          <option>Filtro (Melitta / V60)</option>
-          <option>Prensa Francesa / Moka</option>
-          <option>Espresso</option>
-        </select>
+          <div class="tech-specs">
+            <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
+            <strong>Origem:</strong> Sítio Terra Nova (Campestre/MG — Região Vulcânica)<br>
+            <strong>Variedade:</strong> Catuaí Vermelho | Safra 25/26 (Via seca)
+          </div>
+
+          <p class="sensory-profile">
+            "Doçura marcante com notas de morango, chocolate 70%, cereja e baunilha. Acidez brilhante."
+          </p>
+
+          <label for="emb-sirius">Embalagem</label>
+          <select id="emb-sirius">
+            <option value="250g">250g (Padrão) — R$ 48,00</option>
+            <option value="100g">100g</option>
+            <option value="500g">500g</option>
+            <option value="1kg">1kg</option>
+            <option value="Drip Coffee">Drip Coffee</option>
+          </select>
+
+          <label for="moag-sirius">Moagem / Método</label>
+          <select id="moag-sirius">
+            <option value="Em Grãos">Em Grãos (Moinho próprio)</option>
+            <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
+            <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
+            <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
+          </select>
+        </div>
 
         <button class="btn-buy" onclick="comprarWhatsApp('Sirius', 'emb-sirius', 'moag-sirius')">Comprar via WhatsApp</button>
       </div>
 
       <!-- VEGA -->
       <div class="product-card">
-        <h3>Vega</h3>
-        <div class="product-price">R$ 48,00</div>
-        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Mundo Novo | Notas de chocolate, caramelo e avelã.</p>
-        
-        <label style="font-size:0.75rem; font-weight:600;">EMBALAGEM</label>
-        <select id="emb-vega">
-          <option>250g (Grãos)</option>
-          <option>100g</option>
-          <option>500g</option>
-          <option>1kg</option>
-          <option>Drip Coffee</option>
-        </select>
+        <div>
+          <h3>Vega</h3>
+          <div class="product-price">R$ 48,00</div>
 
-        <label style="font-size:0.75rem; font-weight:600; margin-top:10px; display:block;">MOAGEM</label>
-        <select id="moag-vega">
-          <option>Em Grãos</option>
-          <option>Filtro (Melitta / V60)</option>
-          <option>Prensa Francesa / Moka</option>
-          <option>Espresso</option>
-        </select>
+          <div class="tech-specs">
+            <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
+            <strong>Origem:</strong> Sítio Terra Nova (Campestre/MG — Região Vulcânica)<br>
+            <strong>Variedade:</strong> Mundo Novo | Safra 25/26 (Via seca)
+          </div>
+
+          <p class="sensory-profile">
+            "Notas marcantes de chocolate ao leite e caramelo com um toque de avelã e laranja. Acidez cítrica leve."
+          </p>
+
+          <label for="emb-vega">Embalagem</label>
+          <select id="emb-vega">
+            <option value="250g">250g (Padrão) — R$ 48,00</option>
+            <option value="100g">100g</option>
+            <option value="500g">500g</option>
+            <option value="1kg">1kg</option>
+            <option value="Drip Coffee">Drip Coffee</option>
+          </select>
+
+          <label for="moag-vega">Moagem / Método</label>
+          <select id="moag-vega">
+            <option value="Em Grãos">Em Grãos (Moinho próprio)</option>
+            <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
+            <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
+            <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
+          </select>
+        </div>
 
         <button class="btn-buy" onclick="comprarWhatsApp('Vega', 'emb-vega', 'moag-vega')">Comprar via WhatsApp</button>
       </div>
@@ -466,12 +580,25 @@
     </div>
   </section>
 
+  <!-- MANIFESTO -->
+  <section id="manifesto" class="manifesto-section">
+    <h2>Feito sem pressa. Torrado com precisão.</h2>
+    <p>"Novos caminhos, o mesmo ritual. Acreditamos no tempo necessário para extrair o melhor de cada grão, honrando o trabalho da terra e a presença em cada xícara."</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Atlas Café. Garopaba/SC — Todos os direitos reservados.</p>
+  </footer>
+
   <script>
     function comprarWhatsApp(produto, idEmb, idMoag) {
       const emb = document.getElementById(idEmb).value;
       const moagem = document.getElementById(idMoag).value;
       const fone = "5551985587732";
-      const msg = `Olá! Gostaria de encomendar o café *${produto}* (${emb} | Moagem: ${moagem}) no valor de R$ 48,00.`;
+      
+      const msg = `Olá! Gostaria de encomendar o café *${produto}*\n- *Embalagem:* ${emb}\n- *Moagem/Método:* ${moagem}\n- *Valor Base:* R$ 48,00`;
+      
       window.open(`https://wa.me/${fone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
