@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atlas Café | Torrefação de Cafés Especiais</title>
+  <title>Atlas Café | Torrefação Artesanal em Garopaba/SC</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #121212;
-      --card-bg: #1a1a1a;
-      --accent-color: #d4af37; /* Dourado suave / Tom quente */
-      --accent-hover: #f3e5ab;
-      --text-main: #e0e0e0;
-      --text-muted: #a0a0a0;
-      --border-color: rgba(212, 175, 55, 0.2);
+      --bg-warm: #F8F5F0;
+      --bg-card: #F2ECE1;
+      --bg-card-light: #FAF7F2;
+      --text-dark: #2B2523;
+      --text-muted: #6B625E;
+      --brown-top: #3D312A;
+      --brown-accent: #8C6D58;
+      --border-subtle: #E5DDD0;
     }
 
     * {
@@ -28,38 +29,71 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-warm);
+      color: var(--text-dark);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
+    h1, h2, h3, .font-serif {
+      font-family: 'Playfair Display', serif;
     }
 
-    /* HEADER */
+    /* BARRA SUPERIOR DE ANÚNCIO */
+    .announcement-bar {
+      background-color: var(--brown-top);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .announcement-bar .badge {
+      background-color: var(--brown-accent);
+      color: #FFF;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin: 0 4px;
+    }
+
+    /* CABEÇALHO CLARO */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(18, 18, 18, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
-      padding: 15px 8%;
+      background-color: var(--bg-warm);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .header-logo img {
-      height: 40px;
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .brand-logo img {
+      height: 32px;
       width: auto;
-      display: block;
+    }
+
+    .brand-logo .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--brown-accent);
+      border-radius: 50%;
     }
 
     nav ul {
@@ -69,351 +103,376 @@
     }
 
     nav a {
-      color: var(--text-main);
       text-decoration: none;
+      color: var(--text-dark);
       font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
     nav a:hover {
-      color: var(--accent-color);
+      color: var(--brown-accent);
     }
 
-    /* HERO SECTION */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 140px 20px 60px;
-      background: radial-gradient(circle at center, #1f1f1f 0%, #121212 100%);
-    }
-
-    .hero-logo img {
-      max-width: 220px;
-      height: auto;
-      margin-bottom: 20px;
-      filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #ffffff;
-      margin-bottom: 10px;
+    .btn-header-cart {
+      border: 1px solid var(--text-dark);
+      background: transparent;
+      padding: 8px 20px;
+      font-size: 0.75rem;
       font-weight: 600;
-    }
-
-    .hero .tagline {
-      font-size: 1.1rem;
-      color: var(--accent-color);
-      font-style: italic;
-      margin-bottom: 35px;
-      letter-spacing: 1px;
-    }
-
-    .btn-main {
-      display: inline-block;
-      padding: 14px 36px;
-      background-color: transparent;
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      font-family: 'Cinzel', serif;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .btn-main:hover {
-      background-color: var(--accent-color);
-      color: #121212;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-    }
-
-    /* PRODUTOS */
-    .products-section {
-      padding: 100px 8%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #ffffff;
-      margin-bottom: 60px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 1px;
-      background: var(--accent-color);
-      margin: 15px auto 0;
-    }
-
-    .products-grid {
+    /* CONTEÚDO PRINCIPAL (HERO + GUIA DO BARISTA) */
+    .main-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
+      padding: 50px 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
     }
 
-    .product-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      padding: 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+    /* CARD DE LOGO E FRASES (HERO ESQUERDA) */
+    .hero-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 25px;
     }
 
-    .product-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-color);
+    .hero-card img.hero-logo-img {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 25px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .product-title {
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 8px;
+    .hero-card .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--brown-accent);
+      font-size: 1.2rem;
     }
 
-    .product-price {
-      font-size: 1.3rem;
-      color: var(--accent-color);
+    .tag-location {
+      display: inline-block;
+      background-color: #EFE8DC;
+      color: var(--text-muted);
+      font-size: 0.7rem;
       font-weight: 600;
-      margin-bottom: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
     }
 
-    .product-desc {
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.15;
+      color: var(--text-dark);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    /* CARD DO RITUAL DE PREPARO (DIREITA) */
+    .barista-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .barista-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 15px;
+    }
+
+    .barista-subtitle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brown-accent);
+      font-weight: 600;
+    }
+
+    .barista-title {
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-top: 5px;
+    }
+
+    .time-badge {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-radius: 4px;
+    }
+
+    .barista-desc {
       font-size: 0.9rem;
       color: var(--text-muted);
       margin-bottom: 25px;
     }
 
-    .option-group {
-      margin-bottom: 20px;
+    .method-box {
+      background-color: var(--bg-card-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .option-group label {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-      color: var(--text-main);
+    .method-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-dark);
     }
 
-    .option-group select {
+    .method-details {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .method-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #EFE8DC;
+      padding: 4px 8px;
+      border-radius: 3px;
+      color: var(--text-dark);
+    }
+
+    /* PRODUTOS */
+    .products-section {
+      padding: 60px 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card h3 {
+      font-size: 1.6rem;
+      color: var(--text-dark);
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      color: var(--brown-accent);
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .product-card select {
       width: 100%;
-      padding: 12px;
-      background: #121212;
-      border: 1px solid #333;
-      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
       border-radius: 4px;
-      outline: none;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
-      transition: border-color 0.3s;
-    }
-
-    .option-group select:focus {
-      border-color: var(--accent-color);
+      font-family: inherit;
     }
 
     .btn-buy {
+      margin-top: 20px;
       width: 100%;
-      padding: 14px;
-      background: var(--accent-color);
-      color: #121212;
+      padding: 12px;
+      background: var(--brown-top);
+      color: #FFF;
       border: none;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
+      border-radius: 4px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-buy:hover {
-      background: var(--accent-hover);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-    }
-
-    /* MANIFESTO */
-    .manifesto {
-      padding: 100px 8%;
-      background: #181818;
-      text-align: center;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .manifesto h2 {
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .manifesto p {
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 40px 8%;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
       letter-spacing: 1px;
+      cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-      nav ul {
-        gap: 20px;
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
+  <!-- BARRA DE ANÚNCIO TOP -->
+  <div class="announcement-bar">
+    ✨ Primeira vez na Atlas Café? Use o cupom <span class="badge">RITUAL10</span> para 10% OFF no seu primeiro pedido.
+  </div>
+
+  <!-- CABEÇALHO CLARO -->
   <header>
-    <div class="header-logo">
-      <img src="logo.png" alt="Atlas Café" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
-    </div>
+    <a href="#" class="brand-logo">
+      <span class="dot"></span>
+      <span>ATLAS CAFÉ</span>
+    </a>
     <nav>
       <ul>
-        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#produtos">Kits Boas-Vindas</a></li>
+        <li><a href="#produtos">Nossos Cafés</a></li>
         <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
+    <button class="btn-header-cart">Carrinho</button>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-logo">
-      <img src="logo.png" alt="Atlas Café" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
+  <!-- SEÇÃO PRINCIPAL (EXATAMENTE COMO NA IMAGEM 2 + LOGO DA HERO) -->
+  <main class="main-grid">
+    
+    <!-- LADO ESQUERDO: SEÇÃO HERO COM LOGO E FRASES ORIGINAIS -->
+    <div>
+      <div class="hero-card">
+        <!-- AQUI ESTÁ A LOGO NA HERO SECTION -->
+        <img src="logo.png" alt="Atlas Café Logo" class="hero-logo-img" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
+        <p class="hero-subtitle">"Novos caminhos, o mesmo ritual."</p>
+      </div>
+
+      <span class="tag-location">Torrefação Artesanal em Garopaba/SC</span>
+
+      <h1 class="hero-title">O café como ele deve ser:</h1>
     </div>
-    <h1>ATLAS CAFÉ</h1>
-    <p class="tagline">Feito sem pressa...</p>
-    <a href="#produtos" class="btn-main">Conhecer Cafés</a>
-  </section>
+
+    <!-- LADO DIREITO: GUIA DO BARISTA -->
+    <div class="barista-card">
+      <div class="barista-header">
+        <div>
+          <span class="barista-subtitle">Guia do Barista</span>
+          <h2 class="barista-title">O Ritual de Preparo</h2>
+        </div>
+        <span class="time-badge">1:15</span>
+      </div>
+
+      <p class="barista-desc">Extraia o melhor dos grãos da Atlas Café respeitando a proporção e moagem ideal para o seu momento de presença.</p>
+
+      <div class="method-box">
+        <div>
+          <div class="method-name">Coado (V60 / Melitta)</div>
+          <div class="method-details">Moagem Média • Proporção 15g p/ 225ml<br><i>Realça acidez limpa, notas florais e doçura.</i></div>
+        </div>
+        <span class="method-tag">V60</span>
+      </div>
+
+      <div class="method-box">
+        <div>
+          <div class="method-name">Prensa Francesa</div>
+          <div class="method-details">Moagem Grossa • Infusão de 4 min<br><i>Corpo denso, textura aveludada e notas de chocolate.</i></div>
+        </div>
+        <span class="method-tag">Prensa</span>
+      </div>
+    </div>
+
+  </main>
 
   <!-- PRODUTOS -->
   <section id="produtos" class="products-section">
     <h2 class="section-title">Nossos Cafés</h2>
-    
     <div class="products-grid">
       
       <!-- SIRIUS -->
       <div class="product-card">
-        <div>
-          <h3 class="product-title">Sirius</h3>
-          <div class="product-price">R$ 48,00</div>
-          <p class="product-desc">Notas sensoriais marcantes e doçura equilibrada para o seu ritual diário.</p>
+        <h3>Sirius</h3>
+        <div class="product-price">R$ 48,00</div>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Catuaí Vermelho | Notas de morango, chocolate e cereja.</p>
+        
+        <label style="font-size:0.75rem; font-weight:600;">EMBALAGEM</label>
+        <select id="emb-sirius">
+          <option>250g (Grãos)</option>
+          <option>100g</option>
+          <option>500g</option>
+          <option>1kg</option>
+          <option>Drip Coffee</option>
+        </select>
 
-          <div class="option-group">
-            <label for="embalagem-sirius">Embalagem</label>
-            <select id="embalagem-sirius">
-              <option>250g (Grãos)</option>
-              <option>100g</option>
-              <option>500g</option>
-              <option>1kg</option>
-              <option>Drip Coffee</option>
-            </select>
-          </div>
+        <label style="font-size:0.75rem; font-weight:600; margin-top:10px; display:block;">MOAGEM</label>
+        <select id="moag-sirius">
+          <option>Em Grãos</option>
+          <option>Filtro (Melitta / V60)</option>
+          <option>Prensa Francesa / Moka</option>
+          <option>Espresso</option>
+        </select>
 
-          <div class="option-group">
-            <label for="moagem-sirius">Moagem</label>
-            <select id="moagem-sirius">
-              <option>Em Grãos</option>
-              <option>Filtro (Melitta / V60)</option>
-              <option>Prensa Francesa / Moka</option>
-              <option>Espresso</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="btn-buy" onclick="comprarWhatsApp('Sirius', 'embalagem-sirius', 'moagem-sirius')">Comprar via WhatsApp</button>
+        <button class="btn-buy" onclick="comprarWhatsApp('Sirius', 'emb-sirius', 'moag-sirius')">Comprar via WhatsApp</button>
       </div>
 
       <!-- VEGA -->
       <div class="product-card">
-        <div>
-          <h3 class="product-title">Vega</h3>
-          <div class="product-price">R$ 48,00</div>
-          <p class="product-desc">Aroma intenso com acidez cítrica harmoniosa e finalização prolongada.</p>
+        <h3>Vega</h3>
+        <div class="product-price">R$ 48,00</div>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Mundo Novo | Notas de chocolate, caramelo e avelã.</p>
+        
+        <label style="font-size:0.75rem; font-weight:600;">EMBALAGEM</label>
+        <select id="emb-vega">
+          <option>250g (Grãos)</option>
+          <option>100g</option>
+          <option>500g</option>
+          <option>1kg</option>
+          <option>Drip Coffee</option>
+        </select>
 
-          <div class="option-group">
-            <label for="embalagem-vega">Embalagem</label>
-            <select id="embalagem-vega">
-              <option>250g (Grãos)</option>
-              <option>100g</option>
-              <option>500g</option>
-              <option>1kg</option>
-              <option>Drip Coffee</option>
-            </select>
-          </div>
+        <label style="font-size:0.75rem; font-weight:600; margin-top:10px; display:block;">MOAGEM</label>
+        <select id="moag-vega">
+          <option>Em Grãos</option>
+          <option>Filtro (Melitta / V60)</option>
+          <option>Prensa Francesa / Moka</option>
+          <option>Espresso</option>
+        </select>
 
-          <div class="option-group">
-            <label for="moagem-vega">Moagem</label>
-            <select id="moagem-vega">
-              <option>Em Grãos</option>
-              <option>Filtro (Melitta / V60)</option>
-              <option>Prensa Francesa / Moka</option>
-              <option>Espresso</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="btn-buy" onclick="comprarWhatsApp('Vega', 'embalagem-vega', 'moagem-vega')">Comprar via WhatsApp</button>
+        <button class="btn-buy" onclick="comprarWhatsApp('Vega', 'emb-vega', 'moag-vega')">Comprar via WhatsApp</button>
       </div>
 
     </div>
   </section>
 
-  <!-- MANIFESTO -->
-  <section id="manifesto" class="manifesto">
-    <h2>Manifesto</h2>
-    <p>"Feito sem pressa..."</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contato">
-    <p>&copy; 2026 Atlas Café. Garopaba/SC — Todos os direitos reservados.</p>
-  </footer>
-
   <script>
-    function comprarWhatsApp(produto, idEmbalagem, idMoagem) {
-      const emb = document.getElementById(idEmbalagem).value;
-      const moagem = document.getElementById(idMoagem).value;
+    function comprarWhatsApp(produto, idEmb, idMoag) {
+      const emb = document.getElementById(idEmb).value;
+      const moagem = document.getElementById(idMoag).value;
       const fone = "5551985587732";
-      
-      const msg = `Olá! Gostaria de encomendar o café *${produto}* (Embalagem: ${emb} | Moagem: ${moagem}) no valor de R$ 48,00.`;
-      const url = `https://wa.me/${fone}?text=${encodeURIComponent(msg)}`;
-      
-      window.open(url, '_blank');
+      const msg = `Olá! Gostaria de encomendar o café *${produto}* (${emb} | Moagem: ${moagem}) no valor de R$ 48,00.`;
+      window.open(`https://wa.me/${fone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
 </body>
