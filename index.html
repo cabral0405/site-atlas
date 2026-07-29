@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -361,59 +361,75 @@
       background: var(--brown-accent);
     }
 
-    /* MANIFESTO DIREÇÃO DE ARTE / ALTA CONVERSÃO */
+    /* =========================================================
+       SEÇÃO DO MANIFESTO (ESTÉTIQUE BOUTIQUE EDITORIAL)
+       ========================================================= */
     .manifesto-section {
-      padding: 100px 8%;
-      background-color: var(--bg-card);
+      padding: 90px 8%;
+      background-color: #F3ECE2; /* Fundo levemente aquecido com textura suave de papel */
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       text-align: center;
       margin-top: 60px;
     }
 
-    .manifesto-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--text-dark);
-      margin-bottom: 30px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .manifesto-content {
-      max-width: 850px;
+    .manifesto-container {
+      max-width: 720px;
       margin: 0 auto;
     }
 
-    .manifesto-opening {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-style: italic;
+    .manifesto-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: var(--brown-accent);
-      line-height: 1.7;
-      margin-bottom: 25px;
+      margin-bottom: 16px;
     }
 
-    .manifesto-body {
+    .manifesto-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 30px;
+    }
+
+    .manifesto-divider {
+      width: 40px;
+      height: 1px;
+      background-color: var(--brown-accent);
+      margin: 0 auto 30px auto;
+      opacity: 0.6;
+    }
+
+    .manifesto-text-lead {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.05rem;
+      font-weight: 400;
       color: var(--text-dark);
       line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .manifesto-text-body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
       font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
     }
 
-    .manifesto-highlight-box {
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .manifesto-closing {
+    .manifesto-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 1.12rem;
+      font-style: italic;
       color: var(--brown-top);
-      font-weight: 600;
       line-height: 1.7;
+      padding: 0 10px;
     }
 
     /* FOOTER */
@@ -429,10 +445,7 @@
         grid-template-columns: 1fr;
       }
       .manifesto-title {
-        font-size: 1.9rem;
-      }
-      .manifesto-opening {
-        font-size: 1.15rem;
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -608,21 +621,24 @@
     </div>
   </section>
 
-  <!-- MANIFESTO EXATO (DIREÇÃO DE ARTE COM FOCO EM VALOR E CONVERSÃO) -->
+  <!-- SEÇÃO DO MANIFESTO AJUSTADA -->
   <section id="manifesto" class="manifesto-section">
-    <h2 class="manifesto-title">Feito sem pressa. Torrado com precisão.</h2>
-    <div class="manifesto-content">
-      <p class="manifesto-opening">
-        "A Atlas Café nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara."
+    <div class="manifesto-container">
+      <span class="manifesto-tag">Nossa Filosofia</span>
+      <h2 class="manifesto-title">Feito sem pressa. Torrado com precisão.</h2>
+      <div class="manifesto-divider"></div>
+      
+      <p class="manifesto-text-lead">
+        A Atlas Café nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara.
       </p>
-      <p class="manifesto-body">
+
+      <p class="manifesto-text-body">
         Não criamos café para as massas; criamos rituais diários de presença.
       </p>
-      <div class="manifesto-highlight-box">
-        <p class="manifesto-closing">
-          Selecionamos grãos de alta pontuação de pequenos produtores brasileiros e desenvolvemos perfis de torra artesanais sob demanda, destacando a doçura natural e a complexidade sensorial pura de cada safra.
-        </p>
-      </div>
+
+      <p class="manifesto-quote">
+        Selecionamos grãos de alta pontuação de pequenos produtores brasileiros e desenvolvemos perfis de torra artesanais sob demanda, destacando a doçura natural e a complexidade sensorial pura de cada safra.
+      </p>
     </div>
   </section>
 
