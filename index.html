@@ -89,14 +89,6 @@
       object-fit: contain;
     }
 
-    .brand-logo .dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: var(--brown-accent);
-      border-radius: 50%;
-    }
-
     nav ul {
       display: flex;
       list-style: none;
@@ -369,9 +361,9 @@
       background: var(--brown-accent);
     }
 
-    /* MANIFESTO COMPLETO RESTAURADO */
+    /* MANIFESTO DIREÇÃO DE ARTE / ALTA CONVERSÃO */
     .manifesto-section {
-      padding: 90px 8%;
+      padding: 100px 8%;
       background-color: var(--bg-card);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
@@ -379,31 +371,49 @@
       margin-top: 60px;
     }
 
-    .manifesto-section h2 {
-      font-size: 2.2rem;
+    .manifesto-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
       color: var(--text-dark);
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .manifesto-content {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
+    }
+
+    .manifesto-opening {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--brown-accent);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .manifesto-body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.05rem;
       color: var(--text-dark);
-      line-height: 1.8;
+      line-height: 1.85;
+      font-weight: 400;
     }
 
-    .manifesto-content p {
-      margin-bottom: 20px;
-    }
-
-    .manifesto-highlight {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--brown-accent);
+    .manifesto-highlight-box {
       margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .manifesto-closing {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--brown-top);
       font-weight: 600;
+      line-height: 1.7;
     }
 
     /* FOOTER */
@@ -417,6 +427,12 @@
     @media (max-width: 900px) {
       .main-grid {
         grid-template-columns: 1fr;
+      }
+      .manifesto-title {
+        font-size: 1.9rem;
+      }
+      .manifesto-opening {
+        font-size: 1.15rem;
       }
     }
   </style>
@@ -592,19 +608,21 @@
     </div>
   </section>
 
-  <!-- MANIFESTO REESCRITO E MESCLADO INTEGRALMENTE -->
+  <!-- MANIFESTO EXATO (DIREÇÃO DE ARTE COM FOCO EM VALOR E CONVERSÃO) -->
   <section id="manifesto" class="manifesto-section">
-    <h2>Feito sem pressa. Torrado com precisão.</h2>
+    <h2 class="manifesto-title">Feito sem pressa. Torrado com precisão.</h2>
     <div class="manifesto-content">
-      <p>
-        Existimos para honrar o ritual de quem desacelera. Acreditamos que o café especial não é apenas uma bebida, mas um ponto de encontro entre o trabalho atento da terra e a sua presença no momento presente.
+      <p class="manifesto-opening">
+        "A Atlas Café nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara."
       </p>
-      <p>
-        Em Garopaba, torramos cada lote com precisão artesanal, respeitando o tempo de cada grão para revelar suas melhores notas sensoriais, doçuras e complexidade natural.
+      <p class="manifesto-body">
+        Não criamos café para as massas; criamos rituais diários de presença.
       </p>
-      <p class="manifesto-highlight">
-        "Novos caminhos, o mesmo ritual."
-      </p>
+      <div class="manifesto-highlight-box">
+        <p class="manifesto-closing">
+          Selecionamos grãos de alta pontuação de pequenos produtores brasileiros e desenvolvemos perfis de torra artesanais sob demanda, destacando a doçura natural e a complexidade sensorial pura de cada safra.
+        </p>
+      </div>
     </div>
   </section>
 
