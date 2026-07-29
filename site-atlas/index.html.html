@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Café | Torrefação de Cafés Especiais em Garopaba/SC</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF8F5;
+            color: #2C2520;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#8C6239] selection:text-white relative min-h-screen flex flex-col justify-between">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="bg-[#2C2520] text-[#FAF8F5] text-[11px] py-2.5 px-4 text-center tracking-wider font-medium flex justify-center items-center gap-2">
+        <span>✨ TORRA SOB DEMANDA EM GAROPABA/SC • USE O CUPOM <strong class="text-[#D4A373] underline">RITUAL10</strong> PARA 10% OFF</span>
+    </div>
+
+    <!-- HEADER / NAV -->
+    <header class="border-b border-[#E6D5C3] sticky top-0 bg-[#FAF8F5]/90 backdrop-blur-md z-40">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#2C2520] text-[#FAF8F5] flex items-center justify-center font-bold text-xs tracking-tighter">
+                    AC
+                </div>
+                <span class="font-bold text-lg tracking-tight uppercase text-[#2C2520]">Atlas Café</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs font-medium tracking-wider uppercase text-[#615246]">
+                <a href="#cafes" class="hover:text-[#2C2520] transition-colors">Nossos Cafés</a>
+                <a href="#kits" class="hover:text-[#2C2520] transition-colors">Kits & Drip</a>
+                <a href="#manifesto" class="hover:text-[#2C2520] transition-colors">Manifesto</a>
+            </nav>
+
+            <button onclick="toggleCart()" class="relative text-[#2C2520] p-2 hover:opacity-80 transition-opacity" aria-label="Abrir Carrinho">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-[#8C6239] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-20 px-6 border-b border-[#E6D5C3] bg-gradient-to-b from-[#FAF8F5] to-[#F3EDE6]">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <span class="text-xs font-bold tracking-widest text-[#8C6239] uppercase">Garoa, Mar & Torra Fina</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#2C2520] leading-tight">
+                Café especial torrado com precisão técnica e propósito.
+            </h1>
+            <p class="text-base md:text-lg text-[#615246] max-w-2xl mx-auto font-normal">
+                Enviamos lotes frescos direto de Garopaba para elevar o seu ritual diário de café.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#cafes" class="bg-[#2C2520] text-[#FAF8F5] px-8 py-4 rounded-none font-semibold text-xs tracking-wider uppercase hover:bg-[#8C6239] transition-all text-center">
+                    Explorar Microlotes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUTOS / MICROLOTES -->
+    <section id="cafes" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="mb-12 text-center">
+            <h2 class="text-2xl font-bold uppercase tracking-wide text-[#2C2520]">Microlotes em Destaque</h2>
+            <p class="text-xs text-[#615246] mt-2">Torrados semanalmente em pequenos lotes</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- CAFÉ SIRIUS -->
+            <div class="border border-[#E6D5C3] p-8 bg-white flex flex-col justify-between hover:shadow-sm transition-shadow">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#FAF8F5] border border-[#E6D5C3] text-[#8C6239]">Catuaí Vermelho</span>
+                        <span class="text-lg font-bold text-[#2C2520]">R$ 48,00</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#2C2520] mb-2">SIRIUS</h3>
+                    <p class="text-xs text-[#615246] mb-6 leading-relaxed">
+                        Notas sensoriais de chocolate ao leite, caramelo e acidez cítrica equilibrada. Perfeito para o dia a dia e métodos filtrados.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8 text-xs text-[#615246]">
+                        <div class="flex justify-between border-b border-[#F3EDE6] pb-2">
+                            <span>Processo:</span> <strong class="text-[#2C2520]">Natural</strong>
+                        </div>
+                        <div class="flex justify-between border-b border-[#F3EDE6] pb-2">
+                            <span>Peso:</span> <strong class="text-[#2C2520]">250g</strong>
+                        </div>
+                        <div class="flex flex-col gap-1.5 pt-2">
+                            <label for="grind-sirius" class="font-semibold text-[#2C2520]">Moagem Escolhida:</label>
+                            <select id="grind-sirius" class="bg-[#FAF8F5] border border-[#E6D5C3] text-xs p-2.5 text-[#2C2520] focus:outline-none focus:border-[#8C6239]">
+                                <option value="Grão Inteiro">Grão Inteiro (Preserva o frescor)</option>
+                                <option value="Filtro (V60, Melitta, Koar)">Filtro (V60, Melitta, Koar)</option>
+                                <option value="Prensa Francesa / Moka">Prensa Francesa / Moka</option>
+                                <option value="Espresso">Espresso</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="addToCart('Café Sirius (250g)', 48, 'grind-sirius')" class="w-full bg-[#2C2520] text-white py-3.5 text-xs font-bold tracking-wider uppercase hover:bg-[#8C6239] transition-colors">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- CAFÉ VEGA -->
+            <div class="border border-[#E6D5C3] p-8 bg-white flex flex-col justify-between hover:shadow-sm transition-shadow">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-[#FAF8F5] border border-[#E6D5C3] text-[#8C6239]">Mundo Novo</span>
+                        <span class="text-lg font-bold text-[#2C2520]">R$ 52,00</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#2C2520] mb-2">VEGA</h3>
+                    <p class="text-xs text-[#615246] mb-6 leading-relaxed">
+                        Complexo e frutado, com perfil de frutas amarelas, rapadura e corpo aveludado. Torra média-clara de alta precisão.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8 text-xs text-[#615246]">
+                        <div class="flex justify-between border-b border-[#F3EDE6] pb-2">
+                            <span>Processo:</span> <strong class="text-[#2C2520]">Fermentação Induzida</strong>
+                        </div>
+                        <div class="flex justify-between border-b border-[#F3EDE6] pb-2">
+                            <span>Peso:</span> <strong class="text-[#2C2520]">250g</strong>
+                        </div>
+                        <div class="flex flex-col gap-1.5 pt-2">
+                            <label for="grind-vega" class="font-semibold text-[#2C2520]">Moagem Escolhida:</label>
+                            <select id="grind-vega" class="bg-[#FAF8F5] border border-[#E6D5C3] text-xs p-2.5 text-[#2C2520] focus:outline-none focus:border-[#8C6239]">
+                                <option value="Grão Inteiro">Grão Inteiro (Preserva o frescor)</option>
+                                <option value="Filtro (V60, Melitta, Koar)">Filtro (V60, Melitta, Koar)</option>
+                                <option value="Prensa Francesa / Moka">Prensa Francesa / Moka</option>
+                                <option value="Espresso">Espresso</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="addToCart('Café Vega (250g)', 52, 'grind-vega')" class="w-full bg-[#2C2520] text-white py-3.5 text-xs font-bold tracking-wider uppercase hover:bg-[#8C6239] transition-colors">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- KITS & DRIP COFFEE -->
+    <section id="kits" class="py-16 px-6 bg-[#F3EDE6] border-t border-b border-[#E6D5C3]">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-2xl font-bold uppercase tracking-wide text-[#2C2520]">Kits & Praticidade</h2>
+                <p class="text-xs text-[#615246] mt-2">Experiências completas e doses individuais dos nossos microlotes</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- KIT DUO -->
+                <div class="bg-white p-6 border border-[#E6D5C3] flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-[#2C2520]">Kit Duo Atlas</h3>
+                            <span class="font-bold text-sm text-[#2C2520]">R$ 92,00</span>
+                        </div>
+                        <p class="text-xs text-[#615246] mb-4">Combinação perfeita: 1x Sirius (250g) + 1x Vega (250g) para comparar os perfis de torra.</p>
+                    </div>
+                    <button onclick="addDirectToCart('Kit Duo Atlas (Sirius + Vega)', 92, 'Grão ou Moído')" class="w-full bg-[#2C2520] text-white py-3 text-xs font-bold uppercase hover:bg-[#8C6239] transition-colors mt-2">
+                        Adicionar Kit
+                    </button>
+                </div>
+
+                <!-- DRIP COFFEE BOX -->
+                <div class="bg-white p-6 border border-[#E6D5C3] flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-[#2C2520]">Caixa Drip Coffee (10 un)</h3>
+                            <span class="font-bold text-sm text-[#2C2520]">R$ 55,00</span>
+                        </div>
+                        <p class="text-xs text-[#615246] mb-4">Filtros individuais de bolso para passar seu café especial em qualquer lugar de forma rápida.</p>
+                        
+                        <div class="flex flex-col gap-1.5 mb-4 text-xs">
+                            <label for="variety-drip" class="font-semibold text-[#2C2520]">Escolha o Grão / Variedade:</label>
+                            <select id="variety-drip" class="bg-[#FAF8F5] border border-[#E6D5C3] text-xs p-2 text-[#2C2520] focus:outline-none focus:border-[#8C6239]">
+                                <option value="Sirius (Catuaí Vermelho)">Sirius (Catuaí Vermelho)</option>
+                                <option value="Vega (Mundo Novo)">Vega (Mundo Novo)</option>
+                                <option value="Mix (5x Sirius + 5x Vega)">Mix (5x Sirius + 5x Vega)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Caixa Drip Coffee (10un)', 55, 'variety-drip')" class="w-full bg-[#2C2520] text-white py-3 text-xs font-bold uppercase hover:bg-[#8C6239] transition-colors">
+                        Adicionar Drip Coffee
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO SECTION -->
+    <section id="manifesto" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <span class="text-[10px] font-bold tracking-widest text-[#8C6239] uppercase">O Ritual da Torra</span>
+        <h2 class="text-3xl font-bold text-[#2C2520] mt-2 mb-6">Feito devagar. Torrado com precisão.</h2>
+        <p class="text-sm text-[#615246] leading-relaxed max-w-2xl mx-auto">
+            A Atlas Café nasceu à beira-mar em Garopaba/SC com a missão de valorizar a origem dos pequenos produtores brasileiros. Selecionamos apenas grãos de alta pontuação e desenvolvemos perfis de torra específicos para destacar a doçura natural e as notas sensoriais puras de cada safra.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-[#E6D5C3] py-12 px-6 bg-[#FAF8F5] text-xs text-[#615246]">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div>
+                <p class="font-bold text-[#2C2520]">ATLAS CAFÉ - TORREFAÇÃO ARTESANAL</p>
+                <p class="mt-1">Garopaba / SC — Brasil</p>
+            </div>
+            <p>© 2026 Atlas Café. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- CART DRAWER (GAVETA DO CARRINHO) -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col border-l border-[#E6D5C3]">
+        <div class="p-6 border-b border-[#E6D5C3] flex justify-between items-center bg-[#FAF8F5]">
+            <h3 class="font-bold text-sm tracking-wider uppercase text-[#2C2520]">Seu Carrinho</h3>
+            <button onclick="toggleCart()" class="text-[#2C2520] hover:opacity-70 text-lg font-bold">✕</button>
+        </div>
+
+        <div id="cart-items" class="p-6 flex-1 overflow-y-auto space-y-4">
+            <p class="text-xs text-[#615246] text-center italic py-8">Seu carrinho está vazio no momento.</p>
+        </div>
+
+        <!-- CUPOM E TOTAL -->
+        <div class="p-6 border-t border-[#E6D5C3] bg-[#FAF8F5] space-y-4">
+            <div>
+                <label for="coupon-input" class="text-[11px] font-bold text-[#2C2520] uppercase block mb-1">Cupom de Desconto</label>
+                <div class="flex gap-2">
+                    <input type="text" id="coupon-input" placeholder="Ex: RITUAL10" class="flex-1 bg-white border border-[#E6D5C3] text-xs p-2 uppercase focus:outline-none focus:border-[#8C6239]">
+                    <button onclick="applyCoupon()" class="bg-[#2C2520] text-white text-xs px-3 font-semibold hover:bg-[#8C6239]">Aplicar</button>
+                </div>
+                <p id="coupon-message" class="hidden text-[11px] text-green-700 font-bold mt-1">✓ Cupom RITUAL10 aplicado (10% OFF)</p>
+            </div>
+
+            <div class="flex justify-between items-center pt-2 border-t border-[#E6D5C3]">
+                <span class="text-xs font-bold uppercase text-[#2C2520]">Total:</span>
+                <span id="cart-total" class="text-lg font-bold text-[#2C2520]">R$ 0,00</span>
+            </div>
+
+            <div class="space-y-2 pt-2">
+                <button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-3 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    <span>Finalizar no WhatsApp</span>
+                </button>
+                <button onclick="checkoutPixDirect()" class="w-full bg-[#2C2520] text-white py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#8C6239] transition-colors">
+                    Pagar com PIX Direto
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let cart = [];
+        let discountPercent = 0;
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            if (drawer) {
+                drawer.classList.toggle('translate-x-full');
+            }
+        }
+
+        function addToCart(name, price, grindSelectId) {
+            const grindSelect = document.getElementById(grindSelectId);
+            const grind = grindSelect ? grindSelect.value : 'Grão Inteiro';
+            
+            const existingIndex = cart.findIndex(item => item.name === name && item.grind === grind);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, grind, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCart();
+        }
+
+        function addDirectToCart(name, price, grindInfo) {
+            const existingIndex = cart.findIndex(item => item.name === name && item.grind === grindInfo);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, grind: grindInfo, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function applyCoupon() {
+            const couponInput = document.getElementById('coupon-input');
+            if (!couponInput) return;
+            
+            const code = couponInput.value.trim().toUpperCase();
+            const msg = document.getElementById('coupon-message');
+
+            if (code === 'RITUAL10') {
+                discountPercent = 0.10; // 10% OFF
+                if (msg) msg.classList.remove('hidden');
+            } else {
+                alert('Cupom inválido. Tente o cupom RITUAL10');
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const itemsContainer = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+            const badge = document.getElementById('cart-badge');
+
+            if (!itemsContainer || !totalElement) return;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="text-xs text-[#615246] text-center italic py-8">Seu carrinho está vazio no momento.</p>';
+                totalElement.innerText = 'R$ 0,00';
+                if (badge) badge.classList.add('hidden');
+                return;
+            }
+
+            let subtotal = 0;
+            let totalItems = 0;
+            itemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                totalItems += item.quantity;
+
+                itemsContainer.innerHTML += `
+                    <div class="flex justify-between items-start border-b border-[#E6D5C3] pb-3 text-xs">
+                        <div>
+                            <h4 class="font-bold text-[#2C2520]">${item.name}</h4>
+                            <p class="text-[#8C6239] font-medium mt-0.5">${item.grind}</p>
+                            <p class="text-[#615246] mt-1">Qtd: ${item.quantity} x R$ ${item.price.toFixed(2)}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-800 hover:underline text-[10px] font-semibold cursor-pointer">Remover</button>
+                    </div>
+                `;
+            });
+
+            const finalTotal = subtotal * (1 - discountPercent);
+
+            totalElement.innerText = `R$ ${finalTotal.toFixed(2)}`;
+            if (badge) {
+                badge.innerText = totalItems;
+                badge.classList.remove('hidden');
+            }
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Adicione ao menos um item ao carrinho antes de finalizar.');
+                return;
+            }
+
+            let message = `Olá, Atlas Café! Gostaria de fazer o seguinte pedido de cafés frescos:\n\n`;
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                message += `• *${item.quantity}x ${item.name}*\n  Opção: ${item.grind}\n  Valor: R$ ${itemTotal.toFixed(2)}\n\n`;
+            });
+
+            const finalTotal = subtotal * (1 - discountPercent);
+            if (discountPercent > 0) {
+                message += `*Desconto Aplicado (Cupom RITUAL10): 10% OFF*\n`;
+            }
+
+            message += `*Total do Pedido: R$ ${finalTotal.toFixed(2)}*\n\nComo faço para finalizar o pagamento e informar o endereço de entrega em Garopaba/SC ou Envio Expresso?`;
+
+            const phoneNumber = "5548999999999"; 
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        function checkoutPixDirect() {
+            if (cart.length === 0) {
+                alert('Adicione ao menos um item ao carrinho antes de finalizar.');
+                return;
+            }
+            alert('Ativando Checkout PIX Automático... Você será redirecionado para a chave PIX de pagamento seguro da Atlas Café.');
+        }
+    </script>
+</body>
+</html>
