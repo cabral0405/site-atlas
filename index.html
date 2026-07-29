@@ -369,9 +369,9 @@
       background: var(--brown-accent);
     }
 
-    /* MANIFESTO */
+    /* MANIFESTO COMPLETO RESTAURADO */
     .manifesto-section {
-      padding: 80px 8%;
+      padding: 90px 8%;
       background-color: var(--bg-card);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
@@ -380,18 +380,30 @@
     }
 
     .manifesto-section h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--text-dark);
+      margin-bottom: 25px;
+    }
+
+    .manifesto-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    .manifesto-content p {
       margin-bottom: 20px;
     }
 
-    .manifesto-section p {
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 1.15rem;
+    .manifesto-highlight {
+      font-family: 'Playfair Display', serif;
       font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.8;
+      font-size: 1.25rem;
+      color: var(--brown-accent);
+      margin-top: 30px;
+      font-weight: 600;
     }
 
     /* FOOTER */
@@ -580,10 +592,20 @@
     </div>
   </section>
 
-  <!-- MANIFESTO -->
+  <!-- MANIFESTO REESCRITO E MESCLADO INTEGRALMENTE -->
   <section id="manifesto" class="manifesto-section">
     <h2>Feito sem pressa. Torrado com precisão.</h2>
-    <p>"Novos caminhos, o mesmo ritual. Acreditamos no tempo necessário para extrair o melhor de cada grão, honrando o trabalho da terra e a presença em cada xícara."</p>
+    <div class="manifesto-content">
+      <p>
+        Existimos para honrar o ritual de quem desacelera. Acreditamos que o café especial não é apenas uma bebida, mas um ponto de encontro entre o trabalho atento da terra e a sua presença no momento presente.
+      </p>
+      <p>
+        Em Garopaba, torramos cada lote com precisão artesanal, respeitando o tempo de cada grão para revelar suas melhores notas sensoriais, doçuras e complexidade natural.
+      </p>
+      <p class="manifesto-highlight">
+        "Novos caminhos, o mesmo ritual."
+      </p>
+    </div>
   </section>
 
   <!-- FOOTER -->
