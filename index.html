@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas Café | Torrefação Artesanal em Garopaba/SC</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (Apenas 2 fontes para o site inteiro) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -361,12 +361,10 @@
       background: var(--brown-accent);
     }
 
-    /* =========================================================
-       SEÇÃO DO MANIFESTO (ESTÉTIQUE BOUTIQUE EDITORIAL)
-       ========================================================= */
+    /* MANIFESTO CLEAN, LIMPO E UNIFICADO */
     .manifesto-section {
       padding: 90px 8%;
-      background-color: #F3ECE2; /* Fundo levemente aquecido com textura suave de papel */
+      background-color: var(--bg-card);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       text-align: center;
@@ -374,18 +372,8 @@
     }
 
     .manifesto-container {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-    }
-
-    .manifesto-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--brown-accent);
-      margin-bottom: 16px;
     }
 
     .manifesto-title {
@@ -393,43 +381,23 @@
       font-size: 2.2rem;
       font-weight: 500;
       color: var(--text-dark);
-      line-height: 1.25;
       margin-bottom: 30px;
     }
 
-    .manifesto-divider {
-      width: 40px;
-      height: 1px;
-      background-color: var(--brown-accent);
-      margin: 0 auto 30px auto;
-      opacity: 0.6;
-    }
-
-    .manifesto-text-lead {
+    .manifesto-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 400;
       color: var(--text-dark);
       line-height: 1.85;
+    }
+
+    .manifesto-text p {
       margin-bottom: 20px;
     }
 
-    .manifesto-text-body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.98rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    .manifesto-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.12rem;
-      font-style: italic;
-      color: var(--brown-top);
-      line-height: 1.7;
-      padding: 0 10px;
+    .manifesto-text p:last-child {
+      margin-bottom: 0;
     }
 
     /* FOOTER */
@@ -621,24 +589,22 @@
     </div>
   </section>
 
-  <!-- SEÇÃO DO MANIFESTO AJUSTADA -->
+  <!-- MANIFESTO HARMONIOSO E TOTALMENTE UNIFICADO -->
   <section id="manifesto" class="manifesto-section">
     <div class="manifesto-container">
-      <span class="manifesto-tag">Nossa Filosofia</span>
       <h2 class="manifesto-title">Feito sem pressa. Torrado com precisão.</h2>
-      <div class="manifesto-divider"></div>
       
-      <p class="manifesto-text-lead">
-        A Atlas Café nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara.
-      </p>
-
-      <p class="manifesto-text-body">
-        Não criamos café para as massas; criamos rituais diários de presença.
-      </p>
-
-      <p class="manifesto-quote">
-        Selecionamos grãos de alta pontuação de pequenos produtores brasileiros e desenvolvemos perfis de torra artesanais sob demanda, destacando a doçura natural e a complexidade sensorial pura de cada safra.
-      </p>
+      <div class="manifesto-text">
+        <p>
+          A Atlas Café nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara.
+        </p>
+        <p>
+          Não criamos café para as massas; criamos rituais diários de presença.
+        </p>
+        <p>
+          Selecionamos grãos de alta pontuação de pequenos produtores brasileiros e desenvolvemos perfis de torra artesanais sob demanda, destacando a doçura natural e a complexidade sensorial pura de cada safra.
+        </p>
+      </div>
     </div>
   </section>
 
