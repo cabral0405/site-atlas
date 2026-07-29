@@ -482,15 +482,12 @@
       color: var(--text-muted);
     }
 
-    /* =========================================================
-       AJUSTES RESPONSIVOS DE PRECISÃO (MOBILE FIRST OPTIMIZATION)
-       ========================================================= */
+    /* AJUSTES RESPONSIVOS */
     @media (max-width: 768px) {
       header {
         padding: 12px 5%;
       }
 
-      /* OCULTA NAVEGAÇÃO DE TEXTO NO MOBILE PARA NÃO EMBARALHAR */
       header nav {
         display: none;
       }
@@ -555,9 +552,9 @@
 </head>
 <body>
 
-  <!-- BARRA SUPERIOR DE ANÚNCIO -->
+  <!-- BARRA SUPERIOR DE ANÚNCIO (OFERTA DE LANÇAMENTO + FRETE GRÁTIS) -->
   <div class="announcement-bar">
-    ✨ Primeira vez na Atlas Café? Use o cupom <span class="badge">RITUAL10</span> para 10% OFF no seu primeiro pedido.
+    🚀 Lançamento: Promoção R$ 45,00 o pacote + <span class="badge">FRETE GRÁTIS</span> nas compras acima de R$ 100
   </div>
 
   <!-- CABEÇALHO CLARO E LIMPO -->
@@ -664,7 +661,7 @@
       <div class="product-card">
         <div>
           <h3>Sirius</h3>
-          <div class="product-price">R$ 48,00</div>
+          <div class="product-price">R$ 45,00</div>
 
           <div class="tech-specs">
             <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
@@ -701,7 +698,7 @@
       <div class="product-card">
         <div>
           <h3>Vega</h3>
-          <div class="product-price">R$ 48,00</div>
+          <div class="product-price">R$ 45,00</div>
 
           <div class="tech-specs">
             <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
@@ -768,7 +765,7 @@
       const moagem = document.getElementById(idMoag).value;
       const fone = "5551985587732";
       
-      const msg = `Olá! Gostaria de encomendar o café *${produto}*\n- *Embalagem:* ${emb}\n- *Moagem/Método:* ${moagem}\n- *Valor Base:* R$ 48,00`;
+      const msg = `Olá! Gostaria de encomendar o café *${produto}*\n- *Embalagem:* ${emb}\n- *Moagem/Método:* ${moagem}\n- *Valor Promocional:* R$ 45,00\n*(Frete Grátis nas compras acima de R$ 100)*`;
       
       window.open(`https://wa.me/${fone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
