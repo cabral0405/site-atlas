@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas Café | Torrefação Artesanal em Garopaba/SC</title>
 
-  <!-- Google Fonts (Apenas 2 fontes estruturais) -->
+  <!-- Google Fonts (2 fontes estruturais) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,11 +59,11 @@
       margin: 0 4px;
     }
 
-    /* CABEÇALHO CLARO */
+    /* CABEÇALHO CLARO E RESPONSIVO */
     header {
       background-color: var(--bg-warm);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 20px 8%;
+      padding: 16px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,12 +79,13 @@
       text-decoration: none;
       color: var(--text-dark);
       font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 2px;
+      font-size: 1.05rem;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
     }
 
     .brand-logo img {
-      height: 36px;
+      height: 32px;
       width: auto;
       object-fit: contain;
     }
@@ -92,7 +93,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 25px;
     }
 
     nav a {
@@ -110,12 +111,13 @@
     .btn-header-cart {
       border: 1px solid var(--text-dark);
       background: transparent;
-      padding: 8px 20px;
+      padding: 8px 16px;
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     /* MAIN GRID (HERO + GUIA DO BARISTA) */
@@ -173,7 +175,7 @@
       font-weight: 400;
     }
 
-    /* GUIA DO BARISTA DIREITA */
+    /* GUIA DO BARISTA TÉCNICO E FIDELIZADO À EMBALAGEM */
     .barista-card {
       background-color: #FFFFFF;
       border: 1px solid var(--border-subtle);
@@ -183,10 +185,7 @@
     }
 
     .barista-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--border-subtle);
       padding-bottom: 15px;
     }
@@ -196,36 +195,72 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--brown-accent);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .barista-title {
       font-size: 1.7rem;
       color: var(--text-dark);
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
-    .ratio-badge {
-      background: var(--bg-warm);
-      border: 1px solid var(--border-subtle);
-      padding: 4px 10px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--brown-accent);
-      border-radius: 4px;
-    }
-
-    .barista-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .method-box {
+    /* PAINEL TÉCNICO DE EXTRAÇÃO (DA EMBALAGEM) */
+    .recipe-box {
       background-color: var(--bg-card-light);
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      padding: 14px 18px;
+      padding: 18px 15px;
+      margin-bottom: 20px;
+    }
+
+    .recipe-header {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-top);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .recipe-item-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .recipe-item-val {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brown-top);
+    }
+
+    .recipe-instruction {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .method-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 12px 16px;
       margin-bottom: 10px;
     }
 
@@ -244,8 +279,8 @@
     }
 
     .method-tag {
-      font-size: 0.68rem;
-      font-weight: 600;
+      font-size: 0.65rem;
+      font-weight: 700;
       background: #EFE8DC;
       padding: 3px 8px;
       border-radius: 3px;
@@ -274,7 +309,7 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
     }
 
@@ -361,9 +396,9 @@
       background: var(--brown-accent);
     }
 
-    /* SEÇÃO MANIFESTO — DIREÇÃO DE ARTE VIBRANTE E EDITORIAL */
+    /* MANIFESTO EDITORIAL */
     .manifesto-section {
-      padding: 100px 8%;
+      padding: 90px 8%;
       background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg-card) 50%, var(--bg-warm) 100%);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
@@ -447,19 +482,71 @@
       color: var(--text-muted);
     }
 
-    @media (max-width: 900px) {
+    /* =========================================================
+       AJUSTES RESPONSIVOS DE PRECISÃO (MOBILE FIRST OPTIMIZATION)
+       ========================================================= */
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 5%;
+      }
+
+      /* OCULTA NAVEGAÇÃO DE TEXTO NO MOBILE PARA NÃO EMBARALHAR */
+      header nav {
+        display: none;
+      }
+
+      .brand-logo span {
+        font-size: 0.95rem;
+      }
+
+      .btn-header-cart {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+      }
+
       .main-grid {
         grid-template-columns: 1fr;
+        padding: 25px 5%;
+        gap: 25px;
       }
+
+      .hero-card {
+        padding: 35px 20px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .barista-card {
+        padding: 22px 18px;
+      }
+
+      .recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .products-section {
+        padding: 40px 5%;
+      }
+
+      .manifesto-section {
+        padding: 60px 5%;
+      }
+
       .manifesto-title {
-        font-size: 2.1rem;
+        font-size: 2rem;
       }
+
       .manifesto-lead {
         font-size: 1.05rem;
       }
+
       .manifesto-highlight-card {
-        padding: 22px 25px;
+        padding: 20px;
       }
+
       .manifesto-highlight-card p {
         font-size: 1.15rem;
       }
@@ -473,7 +560,7 @@
     ✨ Primeira vez na Atlas Café? Use o cupom <span class="badge">RITUAL10</span> para 10% OFF no seu primeiro pedido.
   </div>
 
-  <!-- CABEÇALHO CLARO -->
+  <!-- CABEÇALHO CLARO E LIMPO -->
   <header>
     <a href="#" class="brand-logo">
       <img src="logo.png" alt="Atlas Café Logo" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
@@ -507,49 +594,62 @@
     <!-- DIREITA: GUIA DO BARISTA -->
     <div class="barista-card">
       <div class="barista-header">
-        <div>
-          <span class="barista-subtitle">Guia do Barista</span>
-          <h2 class="barista-title">O Ritual de Preparo</h2>
-        </div>
-        <span class="ratio-badge">Proporção 1:15</span>
+        <span class="barista-subtitle">Guia do Barista</span>
+        <h2 class="barista-title">O Ritual de Preparo</h2>
       </div>
 
-      <p class="barista-desc">Guia prático para seleção de moagem e preparo ideal na extração do seu café:</p>
+      <!-- PAINEL DE EXTRAÇÃO BASEADO NA EMBALAGEM -->
+      <div class="recipe-box">
+        <div class="recipe-header">
+          <span>Sugestão de Preparo</span>
+          <span>150 ml</span>
+        </div>
+        <div class="recipe-grid">
+          <div>
+            <div class="recipe-item-label">Água</div>
+            <div class="recipe-item-val">92°C</div>
+          </div>
+          <div>
+            <div class="recipe-item-label">Dose</div>
+            <div class="recipe-item-val">10g</div>
+          </div>
+          <div>
+            <div class="recipe-item-label">Proporção</div>
+            <div class="recipe-item-val">1:15</div>
+          </div>
+          <div>
+            <div class="recipe-item-label">Tempo</div>
+            <div class="recipe-item-val">2:30–3:00</div>
+          </div>
+        </div>
+        <p class="recipe-instruction">
+          Pré-infusão de 30–40s com 40ml. Despeje com movimentos circulares e constantes até finalizar.
+        </p>
+      </div>
 
-      <!-- MÉTODO 1 -->
+      <!-- GUIA DE MOAGENS / MÉTODOS -->
       <div class="method-box">
         <div class="method-box-header">
-          <span class="method-name">Fina / Espresso</span>
-          <span class="method-tag">Pressão</span>
+          <span class="method-name">Fina / Pressão</span>
+          <span class="method-tag">Espresso / Moka</span>
         </div>
-        <div class="method-details">Moka / Cafeteira Italiana, Espresso Doméstico.</div>
+        <div class="method-details">Para cafeteiras italianas e espresso (proporções mais concentradas de 1:2 a 1:3).</div>
       </div>
 
-      <!-- MÉTODO 2 -->
       <div class="method-box">
         <div class="method-box-header">
           <span class="method-name">Média / Coados</span>
           <span class="method-tag">Filtrados</span>
         </div>
-        <div class="method-details">V60, Melitta, Chemex, Aeropress, Kalita Wave.</div>
+        <div class="method-details">V60, Melitta, Chemex, Aeropress, Kalita Wave (ideal para 1:15).</div>
       </div>
 
-      <!-- MÉTODO 3 -->
       <div class="method-box">
         <div class="method-box-header">
           <span class="method-name">Grossa / Infusão</span>
           <span class="method-tag">Imersão</span>
         </div>
-        <div class="method-details">Prensa Francesa, Cold Brew (Café Gelado).</div>
-      </div>
-
-      <!-- MÉTODO 4 -->
-      <div class="method-box">
-        <div class="method-box-header">
-          <span class="method-name">Em Grãos</span>
-          <span class="method-tag">Moinho</span>
-        </div>
-        <div class="method-details">Para quem mói na hora e preserva o frescor máximo.</div>
+        <div class="method-details">Prensa Francesa e Cold Brew (café gelado).</div>
       </div>
     </div>
 
