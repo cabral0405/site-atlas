@@ -215,12 +215,12 @@
     details.method-box summary {
       padding: 14px 16px;
       cursor: pointer;
-      list-style: none; /* Remove a seta padrão do navegador */
+      list-style: none;
       position: relative;
     }
 
     details.method-box summary::-webkit-details-marker {
-      display: none; /* Remove seta no Safari */
+      display: none;
     }
 
     details.method-box summary::after {
@@ -236,7 +236,7 @@
     }
 
     details.method-box[open] summary::after {
-      content: '−'; /* Sinal de menos quando aberto */
+      content: '−';
     }
 
     details.method-box[open] summary {
@@ -400,6 +400,12 @@
       outline: none;
     }
 
+    .product-card select:disabled {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
     .btn-buy {
       margin-top: 22px;
       width: 100%;
@@ -435,7 +441,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       cursor: pointer;
       z-index: 998;
-      display: none; /* Só aparece quando tem item */
+      display: none;
       align-items: center;
       gap: 8px;
       font-family: inherit;
@@ -451,9 +457,9 @@
     .cart-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(43, 37, 35, 0.7); /* --text-dark com opacidade */
+      background: rgba(43, 37, 35, 0.7);
       z-index: 1000;
-      display: none; /* Escondido por padrão */
+      display: none;
       justify-content: center;
       align-items: center;
       backdrop-filter: blur(3px);
@@ -865,7 +871,7 @@
           </p>
 
           <label for="emb-sirius">Embalagem</label>
-          <select id="emb-sirius">
+          <select id="emb-sirius" onchange="atualizarSelecao('sirius')">
             <option value="250g">250g — R$ 38,00</option>
             <option value="100g">100g — R$ 18,00</option>
             <option value="500g">500g — R$ 62,00</option>
@@ -875,7 +881,7 @@
 
           <label for="moag-sirius">Moagem / Método</label>
           <select id="moag-sirius">
-            <option value="Em Grãos">Em Grãos (Moinho próprio)</option>
+            <option value="Em Grãos">Em Grãos</option>
             <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
             <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
             <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
@@ -902,7 +908,7 @@
           </p>
 
           <label for="emb-vega">Embalagem</label>
-          <select id="emb-vega">
+          <select id="emb-vega" onchange="atualizarSelecao('vega')">
             <option value="250g">250g — R$ 38,00</option>
             <option value="100g">100g — R$ 18,00</option>
             <option value="500g">500g — R$ 62,00</option>
@@ -912,7 +918,7 @@
 
           <label for="moag-vega">Moagem / Método</label>
           <select id="moag-vega">
-            <option value="Em Grãos">Em Grãos (Moinho próprio)</option>
+            <option value="Em Grãos">Em Grãos</option>
             <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
             <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
             <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
@@ -990,6 +996,19 @@
 
     let carrinho = [];
 
+    // Função para travar a moagem no Drip Coffee
+    function atualizarSelecao(produto) {
+      const selectEmb = document.getElementById('emb-' + produto);
+      const selectMoag = document.getElementById('moag-' + produto);
+      
+      if (selectEmb.value === 'Drip Coffee') {
+        selectMoag.value = 'Média (V60 / Melitta / Chemex)';
+        selectMoag.disabled = true;
+      } else {
+        selectMoag.disabled = false;
+      }
+    }
+
     // Formatar moeda
     function formatarMoeda(valor) {
       return 'R$ ' + valor.toFixed(2).replace('.', ',');
@@ -997,7 +1016,7 @@
 
     function adicionarAoCarrinho(produto, idEmb, idMoag) {
       const emb = document.getElementById(idEmb).value;
-      const moagem = document.getElementById(idMoag).value;
+      const moagem = document.getElementById(idMoag).value; // O JS consegue ler o valor mesmo com o campo bloqueado
       const preco = tabelaPrecos[emb] || 38.00;
       
       // Procura se o item idêntico já existe no carrinho
@@ -1020,13 +1039,13 @@
       }
       
       atualizarInterfaceCarrinho();
-      abrirCarrinho(); // Abre o modal para dar o feedback visual
+      abrirCarrinho(); 
     }
 
     function alterarQtd(index, variacao) {
       carrinho[index].qtd += variacao;
       if (carrinho[index].qtd <= 0) {
-        carrinho.splice(index, 1); // Remove item se a quantidade for 0
+        carrinho.splice(index, 1);
       }
       atualizarInterfaceCarrinho();
     }
