@@ -1,348 +1,1185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlas Café | Torrefação de Cafés Especiais</title>
-  
-  <!-- Fontes Editoriais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas Café | Torrefação Artesanal em Garopaba/SC</title>
+
+  <!-- Google Fonts (2 fontes estruturais) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            offwhite: '#FAF9F6', // Fundo quente editorial
-            escuro: '#1A1A1A'
-          },
-          fontFamily: {
-            playfair: ['"Playfair Display"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Oculta o carrinho por padrão */
-    #carrinho-modal { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
-    #carrinho-modal.aberto { transform: translateX(0); }
-    #overlay { display: none; }
-    #overlay.aberto { display: block; }
+    :root {
+      --bg-warm: #F8F5F0;
+      --bg-card: #F2ECE1;
+      --bg-card-light: #FAF7F2;
+      --text-dark: #2B2523;
+      --text-muted: #6B625E;
+      --brown-top: #3D312A;
+      --brown-accent: #8C6D58;
+      --border-subtle: #E5DDD0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-warm);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* BARRA SUPERIOR DE ANÚNCIO */
+    .announcement-bar {
+      background-color: var(--brown-top);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .announcement-bar .badge {
+      background-color: var(--brown-accent);
+      color: #FFF;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin: 0 4px;
+    }
+
+    /* CABEÇALHO CLARO E RESPONSIVO */
+    header {
+      background-color: var(--bg-warm);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    .brand-logo img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--brown-accent);
+    }
+
+    .btn-header-cart {
+      border: 1px solid var(--text-dark);
+      background: transparent;
+      padding: 8px 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* MAIN GRID (HERO + GUIA DO BARISTA) */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 50px 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* HERO ESQUERDA */
+    .hero-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 50px 40px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .hero-card img.hero-logo-img {
+      max-width: 190px;
+      height: auto;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    .hero-card .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--brown-accent);
+      font-size: 1.25rem;
+    }
+
+    .tag-location {
+      display: inline-block;
+      background-color: #EFE8DC;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    /* GUIA DO BARISTA */
+    .barista-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .barista-header {
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 15px;
+    }
+
+    .barista-subtitle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brown-accent);
+      font-weight: 700;
+    }
+
+    .barista-title {
+      font-size: 1.7rem;
+      color: var(--text-dark);
+      margin-top: 4px;
+    }
+
+    /* SISTEMA DE ACCORDION (CAIXAS RECOLHÍVEIS) */
+    details.method-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    details.method-box summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+    }
+
+    details.method-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.method-box summary::after {
+      content: '+';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--brown-accent);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    details.method-box[open] summary::after {
+      content: '−';
+    }
+
+    details.method-box[open] summary {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .summary-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 20px;
+    }
+
+    .method-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .method-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: #EFE8DC;
+      padding: 3px 8px;
+      border-radius: 3px;
+      color: var(--brown-top);
+      text-transform: uppercase;
+    }
+
+    .method-content {
+      padding: 18px 16px;
+      background-color: var(--bg-card-light);
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    /* ELEMENTOS DA RECEITA DENTRO DO ACCORDION */
+    .recipe-header {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-top);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .recipe-item-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .recipe-item-val {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brown-top);
+    }
+
+    .recipe-instruction {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* SEÇÃO DE PRODUTOS */
+    .products-section {
+      padding: 60px 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card h3 {
+      font-size: 1.8rem;
+      color: var(--text-dark);
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      color: var(--brown-accent);
+      font-weight: 600;
+      margin: 8px 0 15px 0;
+    }
+
+    .tech-specs {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--bg-card-light);
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .sensory-profile {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .product-card label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-top);
+      display: block;
+      margin-top: 12px;
+    }
+
+    .product-card select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    .product-card select:disabled {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .btn-buy {
+      margin-top: 22px;
+      width: 100%;
+      padding: 14px;
+      background: var(--brown-top);
+      color: #FFF;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-buy:hover {
+      background: var(--brown-accent);
+    }
+
+    /* CARRINHO DE COMPRAS MODAL E BOTÃO FLUTUANTE */
+    .cart-float-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--brown-top);
+      color: #FFF;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 998;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      letter-spacing: 1px;
+      transition: transform 0.2s;
+    }
     
-    /* Detalhes do Acordeão do Guia Barista */
-    details > summary { list-style: none; cursor: pointer; }
-    details > summary::-webkit-details-marker { display: none; }
+    .cart-float-btn:hover {
+      transform: scale(1.05);
+      background-color: var(--brown-accent);
+    }
+
+    .cart-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(43, 37, 35, 0.7);
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(3px);
+    }
+
+    .cart-modal {
+      background: var(--bg-warm);
+      width: 90%;
+      max-width: 450px;
+      border-radius: 8px;
+      padding: 30px;
+      position: relative;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .cart-header h3 {
+      font-size: 1.4rem;
+      color: var(--brown-top);
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .cart-items-container {
+      overflow-y: auto;
+      flex-grow: 1;
+      margin-bottom: 20px;
+      padding-right: 5px;
+    }
+
+    .cart-item {
+      background: #FFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-item-info h4 {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .cart-item-price {
+      font-weight: 600;
+      color: var(--brown-accent);
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .cart-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+
+    .cart-qty-controls button {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      color: var(--brown-top);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cart-qty-controls span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    
+    .cart-shipping-notice {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brown-accent);
+      margin-bottom: 15px;
+      background: #EFE8DC;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    /* MANIFESTO EDITORIAL */
+    .manifesto-section {
+      padding: 90px 8%;
+      background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg-card) 50%, var(--bg-warm) 100%);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .manifesto-container {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .manifesto-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-accent);
+      margin-bottom: 15px;
+    }
+
+    .manifesto-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--brown-top);
+      line-height: 1.18;
+      margin-bottom: 35px;
+      letter-spacing: -0.5px;
+    }
+
+    .manifesto-lead {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .manifesto-highlight-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--brown-accent);
+      border-radius: 6px;
+      padding: 30px 40px;
+      margin: 0 auto 35px auto;
+      box-shadow: 0 10px 30px rgba(61, 49, 42, 0.04);
+      position: relative;
+    }
+
+    .manifesto-highlight-card p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--brown-top);
+      line-height: 1.6;
+    }
+
+    .manifesto-body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.85;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .manifesto-body strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 8%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* AJUSTES RESPONSIVOS */
+    @media (max-width: 768px) {
+      header { padding: 12px 5%; }
+      header nav { display: none; }
+      .brand-logo span { font-size: 0.95rem; }
+      .btn-header-cart { padding: 6px 12px; font-size: 0.7rem; }
+      .main-grid { grid-template-columns: 1fr; padding: 25px 5%; gap: 25px; }
+      .hero-card { padding: 35px 20px; }
+      .hero-title { font-size: 2rem; }
+      .barista-card { padding: 22px 18px; }
+      .recipe-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .products-section { padding: 40px 5%; }
+      .manifesto-section { padding: 60px 5%; }
+      .manifesto-title { font-size: 2rem; }
+      .manifesto-lead { font-size: 1.05rem; }
+      .manifesto-highlight-card { padding: 20px; }
+      .manifesto-highlight-card p { font-size: 1.15rem; }
+      .cart-modal { width: 95%; padding: 20px; }
+    }
   </style>
 </head>
-<body class="bg-offwhite text-escuro font-sans antialiased">
+<body>
 
-  <!-- NAVEGAÇÃO -->
-  <header class="py-6 px-8 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-offwhite z-40">
-    <div class="font-playfair text-2xl font-bold tracking-tight">Atlas Café.</div>
-    <button onclick="abrirCarrinho()" class="text-sm font-bold uppercase tracking-wider hover:text-gray-500 transition-colors">
-      Carrinho (<span id="cart-count">0</span>)
-    </button>
+  <!-- BARRA SUPERIOR DE ANÚNCIO ( FRETE GRÁTIS ) -->
+  <div class="announcement-bar">
+    ☕ Torrefação Artesanal + <span class="badge">FRETE GRÁTIS</span> nas compras acima de R$ 100
+  </div>
+
+  <!-- CABEÇALHO CLARO E LIMPO -->
+  <header>
+    <a href="#" class="brand-logo">
+      <img src="logo.png" alt="Atlas Café Logo" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
+      <span>ATLAS CAFÉ</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#produtos">Kits Boas-Vindas</a></li>
+        <li><a href="#produtos">Nossos Cafés</a></li>
+        <li><a href="#manifesto">Manifesto</a></li>
+      </ul>
+    </nav>
+    <button class="btn-header-cart" onclick="abrirCarrinho()">Ver Carrinho</button>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="max-w-5xl mx-auto px-8 py-20 text-center">
-    <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-6">Torrefação Artesanal.</h1>
-    <p class="max-w-xl mx-auto text-lg text-gray-600">Cafés especiais torrados com precisão em Garopaba/SC. Descubra a complexidade das nossas linhas Sirius e Vega.</p>
-  </section>
-
-  <!-- PRODUTOS -->
-  <main class="max-w-5xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+  <!-- MAIN GRID (HERO + GUIA DO BARISTA) -->
+  <main class="main-grid">
     
-    <!-- Produto 1: Sirius -->
-    <article class="border border-gray-200 p-8">
-      <h2 class="font-playfair text-3xl font-bold mb-2">Sirius</h2>
-      <p class="text-sm text-gray-600 mb-6">Notas de chocolate amargo e caramelo. Encorpado e intenso.</p>
-      
-      <div class="mb-4">
-        <label class="block text-xs font-bold uppercase tracking-wider mb-2">Tamanho</label>
-        <select id="tamanho-sirius" class="w-full p-3 border border-gray-300 bg-white focus:outline-none focus:border-escuro">
-          <option value="18">100g - R$ 18,00</option>
-          <option value="38" selected>250g - R$ 38,00</option>
-          <option value="62">500g - R$ 62,00</option>
-          <option value="108">1kg - R$ 108,00</option>
-        </select>
+    <!-- ESQUERDA: HERO CARD -->
+    <div>
+      <div class="hero-card">
+        <img src="logo.png" alt="Atlas Café Logo" class="hero-logo-img" onerror="this.onerror=null; this.src='site-atlas/logo.png';">
+        <p class="hero-subtitle">"Novos caminhos, o mesmo ritual."</p>
       </div>
 
-      <div class="mb-8">
-        <label class="block text-xs font-bold uppercase tracking-wider mb-2">Moagem</label>
-        <select id="moagem-sirius" class="w-full p-3 border border-gray-300 bg-white focus:outline-none focus:border-escuro">
-          <option value="Grãos">Em Grãos</option>
-          <option value="Padrão">Moagem Padrão (Filtro)</option>
-          <option value="Fina">Moagem Fina (Espresso)</option>
-        </select>
+      <span class="tag-location">Torrefação Artesanal em Garopaba/SC</span>
+
+      <h1 class="hero-title">O café como ele deve ser: puro, fresco e vivo.</h1>
+    </div>
+
+    <!-- DIREITA: GUIA DO BARISTA -->
+    <div class="barista-card">
+      <div class="barista-header">
+        <span class="barista-subtitle">Guia do Barista</span>
+        <h2 class="barista-title">Descubra como melhorar seu Ritual de Preparo</h2>
       </div>
 
-      <button onclick="adicionarAoCarrinho('Sirius', 'tamanho-sirius', 'moagem-sirius')" class="w-full bg-escuro text-white py-4 font-bold uppercase tracking-wider hover:bg-gray-800 transition-colors">
-        Adicionar ao Carrinho
-      </button>
-    </article>
+      <!-- COADOS -->
+      <details class="method-box" open>
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Coados (V60, Melitta)</span>
+            <span class="method-tag">Média</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-header">
+            <span>Sugestão de Preparo</span>
+            <span>150 ml</span>
+          </div>
+          <div class="recipe-grid">
+            <div>
+              <div class="recipe-item-label">Água</div>
+              <div class="recipe-item-val">92°C</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Dose</div>
+              <div class="recipe-item-val">10g</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Proporção</div>
+              <div class="recipe-item-val">1:15</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Tempo</div>
+              <div class="recipe-item-val">2:30–3:00</div>
+            </div>
+          </div>
+          <p class="recipe-instruction" style="text-align: center;">
+            Pré-infusão de 30–40s com 40ml. Despeje com movimentos circulares e constantes até finalizar.
+          </p>
+        </div>
+      </details>
 
-    <!-- Produto 2: Vega -->
-    <article class="border border-gray-200 p-8">
-      <h2 class="font-playfair text-3xl font-bold mb-2">Vega</h2>
-      <p class="text-sm text-gray-600 mb-6">Notas frutadas e acidez brilhante. Perfeito para métodos coados.</p>
-      
-      <div class="mb-4">
-        <label class="block text-xs font-bold uppercase tracking-wider mb-2">Tamanho</label>
-        <select id="tamanho-vega" class="w-full p-3 border border-gray-300 bg-white focus:outline-none focus:border-escuro">
-          <option value="38">250g - R$ 38,00</option>
-          <option value="39">Drip Coffee - R$ 39,00</option>
-          <option value="62">500g - R$ 62,00</option>
-        </select>
-      </div>
+      <!-- ESPRESSO -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Espresso</span>
+            <span class="method-tag">Fina</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-grid">
+            <div>
+              <div class="recipe-item-label">Dose</div>
+              <div class="recipe-item-val">19g</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Extração</div>
+              <div class="recipe-item-val">38ml</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Proporção</div>
+              <div class="recipe-item-val">1:2</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Tempo</div>
+              <div class="recipe-item-val">25–27s</div>
+            </div>
+          </div>
+        </div>
+      </details>
 
-      <div class="mb-8">
-        <label class="block text-xs font-bold uppercase tracking-wider mb-2">Moagem</label>
-        <select id="moagem-vega" class="w-full p-3 border border-gray-300 bg-white focus:outline-none focus:border-escuro">
-          <option value="Grãos">Em Grãos</option>
-          <option value="Padrão">Moagem Padrão (Filtro)</option>
-          <option value="Grossa">Moagem Grossa (Prensa)</option>
-        </select>
-      </div>
+      <!-- MOKA -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Moka (Italiana)</span>
+            <span class="method-tag">Fina</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <p class="recipe-instruction">
+            <strong>Proporção 1:10.</strong> Preencha o cesto de pó sem compactar e complete a base com água até o limite da válvula de segurança.
+          </p>
+        </div>
+      </details>
 
-      <button onclick="adicionarAoCarrinho('Vega', 'tamanho-vega', 'moagem-vega')" class="w-full bg-escuro text-white py-4 font-bold uppercase tracking-wider hover:bg-gray-800 transition-colors">
-        Adicionar ao Carrinho
-      </button>
-    </article>
+      <!-- IMERSÃO (PRENSA E COLD BREW) -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Imersão</span>
+            <span class="method-tag">Grossa</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
+            <div>
+              <div class="recipe-item-label">Prensa Francesa</div>
+              <div class="recipe-item-val">1:15</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Cold Brew</div>
+              <div class="recipe-item-val">1:10</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
   </main>
 
-  <!-- GUIA BARISTA (Acordeão Interativo) -->
-  <section class="max-w-3xl mx-auto px-8 py-16">
-    <h3 class="font-playfair text-2xl font-bold mb-8 text-center">Guia do Barista</h3>
-    <div class="border-t border-gray-300">
-      <details class="group py-4 border-b border-gray-300">
-        <summary class="flex justify-between items-center font-bold text-lg cursor-pointer">
-          Qual a proporção ideal de água e café?
-          <span class="transition group-open:rotate-180">+</span>
-        </summary>
-        <p class="text-gray-600 mt-4 leading-relaxed">Recomendamos uma proporção de 1:15 (1g de café para 15ml de água) para coados. Isso ressalta a doçura e a acidez natural dos nossos grãos.</p>
-      </details>
-      <details class="group py-4 border-b border-gray-300">
-        <summary class="flex justify-between items-center font-bold text-lg cursor-pointer">
-          Qual o tempo de validade após a torra?
-          <span class="transition group-open:rotate-180">+</span>
-        </summary>
-        <p class="text-gray-600 mt-4 leading-relaxed">O pico de sabor ocorre entre 7 e 30 dias após a data da torra estampada no rótulo. Recomendamos consumir em até 3 meses.</p>
-      </details>
+  <!-- PRODUTOS -->
+  <section id="produtos" class="products-section">
+    <h2 class="section-title">Nossos Cafés</h2>
+    <div class="products-grid">
+      
+      <!-- SIRIUS -->
+      <div class="product-card">
+        <div>
+          <h3>Sirius</h3>
+          <div class="product-price">A partir de R$ 18,00</div>
+
+          <div class="tech-specs">
+            <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
+            <strong>Origem:</strong> Sítio Terra Nova (Campestre/MG — Região Vulcânica)<br>
+            <strong>Variedade:</strong> Catuaí Vermelho | Safra 25/26 (Via seca)
+          </div>
+
+          <p class="sensory-profile">
+            "Doçura marcante com notas de morango, chocolate 70%, cereja e baunilha. Acidez brilhante."
+          </p>
+
+          <label for="emb-sirius">Embalagem</label>
+          <select id="emb-sirius" onchange="atualizarSelecao('sirius')">
+            <option value="250g">250g — R$ 38,00</option>
+            <option value="100g">100g — R$ 18,00</option>
+            <option value="500g">500g — R$ 62,00</option>
+            <option value="1kg">1kg — R$ 108,00</option>
+            <option value="Drip Coffee">Drip Coffee (Caixa c/ 10) — R$ 39,00</option>
+          </select>
+
+          <label for="moag-sirius">Moagem / Método</label>
+          <select id="moag-sirius">
+            <option value="Em Grãos">Em Grãos</option>
+            <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
+            <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
+            <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
+          </select>
+        </div>
+
+        <button class="btn-buy" onclick="adicionarAoCarrinho('Sirius', 'emb-sirius', 'moag-sirius')">Adicionar ao Carrinho</button>
+      </div>
+
+      <!-- VEGA -->
+      <div class="product-card">
+        <div>
+          <h3>Vega</h3>
+          <div class="product-price">A partir de R$ 18,00</div>
+
+          <div class="tech-specs">
+            <strong>Produtor:</strong> Ilma Rosa Correa Franco<br>
+            <strong>Origem:</strong> Sítio Terra Nova (Campestre/MG — Região Vulcânica)<br>
+            <strong>Variedade:</strong> Mundo Novo | Safra 25/26 (Via seca)
+          </div>
+
+          <p class="sensory-profile">
+            "Notas marcantes de chocolate ao leite e caramelo com um toque de avelã e laranja. Acidez cítrica leve."
+          </p>
+
+          <label for="emb-vega">Embalagem</label>
+          <select id="emb-vega" onchange="atualizarSelecao('vega')">
+            <option value="250g">250g — R$ 38,00</option>
+            <option value="100g">100g — R$ 18,00</option>
+            <option value="500g">500g — R$ 62,00</option>
+            <option value="1kg">1kg — R$ 108,00</option>
+            <option value="Drip Coffee">Drip Coffee (Caixa c/ 10) — R$ 39,00</option>
+          </select>
+
+          <label for="moag-vega">Moagem / Método</label>
+          <select id="moag-vega">
+            <option value="Em Grãos">Em Grãos</option>
+            <option value="Média (V60 / Melitta / Chemex)">Média (V60 / Melitta / Chemex)</option>
+            <option value="Grossa (Prensa Francesa / Cold Brew)">Grossa (Prensa Francesa / Cold Brew)</option>
+            <option value="Fina (Espresso / Moka Italiana)">Fina (Espresso / Moka Italiana)</option>
+          </select>
+        </div>
+
+        <button class="btn-buy" onclick="adicionarAoCarrinho('Vega', 'emb-vega', 'moag-vega')">Adicionar ao Carrinho</button>
+      </div>
+
     </div>
   </section>
 
-  <!-- RODAPÉ -->
-  <footer class="border-t border-gray-200 py-12 text-center text-sm text-gray-500">
-    <p>Atlas Café &copy; 2026. Garopaba, SC.</p>
+  <!-- MANIFESTO -->
+  <section id="manifesto" class="manifesto-section">
+    <div class="manifesto-container">
+      <span class="manifesto-badge">Nossa Filosofia</span>
+      <h2 class="manifesto-title">Feito sem pressa.<br>Torrado com precisão.</h2>
+      
+      <p class="manifesto-lead">
+        A <strong>Atlas Café</strong> nasceu à beira-mar em Garopaba/SC para guiar quem busca desacelerar o ritmo frenético do mundo e se reconectar com a verdade do que está na xícara.
+      </p>
+
+      <div class="manifesto-highlight-card">
+        <p>Não criamos café para as massas;<br>criamos rituais diários de presença.</p>
+      </div>
+
+      <p class="manifesto-body">
+        Selecionamos grãos de <strong>alta pontuação</strong> de pequenos produtores brasileiros e desenvolvemos <strong>perfis de torra artesanais sob demanda</strong>, destacando a doçura natural e a complexidade sensorial pura de cada safra.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Atlas Café. Garopaba/SC — Todos os direitos reservados.</p>
   </footer>
 
-  <!-- ============================================== -->
-  <!-- MODAL DO CARRINHO (LATERAL) -->
-  <!-- ============================================== -->
-  
-  <!-- Overlay escuro -->
-  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity" onclick="fecharCarrinho()"></div>
+  <!-- COMPONENTES DO CARRINHO (MODAL E BOTAO FLUTUANTE) -->
+  <button class="cart-float-btn" id="cartFloatBtn" onclick="abrirCarrinho()">
+    🛒 Carrinho (<span id="cartCount">0</span>)
+  </button>
 
-  <!-- Painel do Carrinho -->
-  <div id="carrinho-modal" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 flex flex-col">
-    
-    <!-- Cabeçalho do Carrinho -->
-    <div class="p-6 border-b border-gray-200 flex justify-between items-center bg-offwhite">
-      <h2 class="font-playfair text-xl font-bold">Seu Pedido</h2>
-      <button onclick="fecharCarrinho()" class="text-gray-500 hover:text-black text-2xl leading-none">&times;</button>
-    </div>
-
-    <!-- Lista de Itens (Scrollável) -->
-    <div id="carrinho-itens" class="flex-1 overflow-y-auto p-6 space-y-4">
-      <!-- Os itens injetados via JS aparecerão aqui -->
-      <p class="text-gray-500 text-sm">Seu carrinho está vazio.</p>
-    </div>
-
-    <!-- Rodapé do Carrinho com Subtotal, CEP e Checkout -->
-    <div class="border-t border-gray-200 p-6 bg-offwhite">
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-modal">
+      <div class="cart-header">
+        <h3>Seu Pedido</h3>
+        <button class="cart-close" onclick="fecharCarrinho()">&times;</button>
+      </div>
       
-      <!-- Aviso de Frete -->
-      <div id="frete-aviso" class="mb-4 text-sm font-sans font-bold text-gray-600"></div>
-
-      <!-- Subtotal -->
-      <div class="flex justify-between items-center text-lg font-playfair font-bold text-gray-900 mb-6">
-        <span>Subtotal</span>
-        <span id="carrinho-subtotal">R$ 0,00</span>
+      <div class="cart-items-container" id="cartItemsList">
+        <!-- Itens injetados via JS -->
       </div>
+      
+      <div class="cart-footer">
+        <div class="cart-shipping-notice" id="shippingNotice">
+          Adicione itens para calcular o frete grátis.
+        </div>
 
-      <!-- Campo de CEP com máscara -->
-      <div class="mb-6">
-        <label for="cep-carrinho" class="block text-sm font-sans text-gray-700 mb-2">CEP para entrega:</label>
-        <input 
-          type="text" 
-          id="cep-carrinho" 
-          placeholder="00000-000" 
-          maxlength="9"
-          class="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-gray-900 font-sans text-gray-900 bg-white placeholder-gray-400 transition-colors"
-        >
+        <!-- CAMPO DE CEP ADICIONADO AQUI -->
+        <div style="margin-bottom: 15px;">
+          <label for="cep-carrinho" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--brown-top); margin-bottom: 6px;">
+            CEP para entrega:
+          </label>
+          <input 
+            type="text" 
+            id="cep-carrinho" 
+            placeholder="00000-000" 
+            maxlength="9"
+            style="width: 100%; padding: 10px; background: var(--bg-warm); border: 1px solid var(--border-subtle); border-radius: 4px; font-family: inherit; font-size: 0.85rem; color: var(--text-dark); outline: none;"
+          >
+        </div>
+
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotalValue">R$ 0,00</span>
+        </div>
+        <button class="btn-buy" style="margin-top: 10px;" onclick="finalizarCompraWhatsApp()">Finalizar via WhatsApp</button>
       </div>
-
-      <!-- Botão de Finalizar -->
-      <button onclick="finalizarCompraWhatsApp()" class="w-full bg-escuro text-white font-sans font-bold uppercase tracking-wider py-4 px-4 hover:bg-gray-800 transition-colors">
-        Finalizar no WhatsApp
-      </button>
-
     </div>
   </div>
 
-  <!-- ============================================== -->
-  <!-- SCRIPTS E LÓGICA -->
-  <!-- ============================================== -->
   <script>
-    // 1. Estado do Carrinho
+    const tabelaPrecos = {
+      '100g': 18.00,
+      '250g': 38.00,
+      '500g': 62.00,
+      '1kg': 108.00,
+      'Drip Coffee': 39.00
+    };
+
     let carrinho = [];
 
-    // 2. Funções de Interface do Carrinho
-    function abrirCarrinho() {
-      document.getElementById('carrinho-modal').classList.add('aberto');
-      document.getElementById('overlay').classList.add('aberto');
+    // Função para travar a moagem no Drip Coffee
+    function atualizarSelecao(produto) {
+      const selectEmb = document.getElementById('emb-' + produto);
+      const selectMoag = document.getElementById('moag-' + produto);
+      
+      if (selectEmb.value === 'Drip Coffee') {
+        selectMoag.value = 'Média (V60 / Melitta / Chemex)';
+        selectMoag.disabled = true;
+      } else {
+        selectMoag.disabled = false;
+      }
     }
 
-    function fecharCarrinho() {
-      document.getElementById('carrinho-modal').classList.remove('aberto');
-      document.getElementById('overlay').classList.remove('aberto');
+    // Formatar moeda
+    function formatarMoeda(valor) {
+      return 'R$ ' + valor.toFixed(2).replace('.', ',');
     }
 
-    // 3. Adicionar Produto
-    function adicionarAoCarrinho(nome, selectTamanhoId, selectMoagemId) {
-      const selectTamanho = document.getElementById(selectTamanhoId);
-      const preco = parseFloat(selectTamanho.value);
-      const tamanhoTexto = selectTamanho.options[selectTamanho.selectedIndex].text.split('-')[0].trim();
-      const moagem = document.getElementById(selectMoagemId).value;
-
-      // Verifica se o item já existe para somar quantidade
-      const indexExistente = carrinho.findIndex(item => item.nome === nome && item.tamanho === tamanhoTexto && item.moagem === moagem);
+    function adicionarAoCarrinho(produto, idEmb, idMoag) {
+      const emb = document.getElementById(idEmb).value;
+      const moagem = document.getElementById(idMoag).value;
+      const preco = tabelaPrecos[emb] || 38.00;
+      
+      const indexExistente = carrinho.findIndex(item => 
+        item.produto === produto && 
+        item.emb === emb && 
+        item.moagem === moagem
+      );
       
       if (indexExistente > -1) {
-        carrinho[indexExistente].quantidade += 1;
+        carrinho[indexExistente].qtd += 1;
       } else {
-        carrinho.push({ nome, tamanho: tamanhoTexto, moagem, preco, quantidade: 1 });
+        carrinho.push({
+          produto: produto,
+          emb: emb,
+          moagem: moagem,
+          preco: preco,
+          qtd: 1
+        });
       }
-
-      atualizarCarrinho();
-      abrirCarrinho();
-    }
-
-    // 4. Remover Produto
-    function removerDoCarrinho(index) {
-      carrinho.splice(index, 1);
-      atualizarCarrinho();
-    }
-
-    // 5. Renderizar o Carrinho e Calcular Totais
-    function atualizarCarrinho() {
-      const containerItens = document.getElementById('carrinho-itens');
-      const containerSubtotal = document.getElementById('carrinho-subtotal');
-      const cartCount = document.getElementById('cart-count');
-      const freteAviso = document.getElementById('frete-aviso');
       
-      containerItens.innerHTML = '';
-      let subtotal = 0;
+      atualizarInterfaceCarrinho();
+      abrirCarrinho(); 
+    }
+
+    function alterarQtd(index, variacao) {
+      carrinho[index].qtd += variacao;
+      if (carrinho[index].qtd <= 0) {
+        carrinho.splice(index, 1);
+      }
+      atualizarInterfaceCarrinho();
+    }
+
+    function atualizarInterfaceCarrinho() {
+      const cartItemsList = document.getElementById('cartItemsList');
+      const cartFloatBtn = document.getElementById('cartFloatBtn');
+      const cartCount = document.getElementById('cartCount');
+      const cartTotalValue = document.getElementById('cartTotalValue');
+      const shippingNotice = document.getElementById('shippingNotice');
+      
+      cartItemsList.innerHTML = '';
+      let total = 0;
       let totalItens = 0;
-
+      
       if (carrinho.length === 0) {
-        containerItens.innerHTML = '<p class="text-gray-500 text-sm">Seu carrinho está vazio.</p>';
-        freteAviso.innerHTML = '';
+        cartItemsList.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">Seu carrinho está vazio.</p>';
+        cartFloatBtn.style.display = 'none';
       } else {
+        cartFloatBtn.style.display = 'flex';
+        
         carrinho.forEach((item, index) => {
-          subtotal += (item.preco * item.quantidade);
-          totalItens += item.quantidade;
-
-          containerItens.innerHTML += `
-            <div class="flex justify-between items-start border-b border-gray-100 pb-4">
-              <div>
-                <p class="font-bold">${item.quantidade}x ${item.nome}</p>
-                <p class="text-xs text-gray-500">${item.tamanho} | Moagem: ${item.moagem}</p>
+          total += (item.preco * item.qtd);
+          totalItens += item.qtd;
+          
+          cartItemsList.innerHTML += `
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <h4>${item.produto} - ${item.emb}</h4>
+                <p>${item.moagem}</p>
+                <div class="cart-item-price">${formatarMoeda(item.preco * item.qtd)}</div>
               </div>
-              <div class="text-right">
-                <p class="font-bold">R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</p>
-                <button onclick="removerDoCarrinho(${index})" class="text-xs text-red-500 underline mt-1">Remover</button>
+              <div class="cart-qty-controls">
+                <button onclick="alterarQtd(${index}, -1)">-</button>
+                <span>${item.qtd}</span>
+                <button onclick="alterarQtd(${index}, 1)">+</button>
               </div>
             </div>
           `;
         });
       }
-
-      // Atualiza Valores
-      containerSubtotal.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      
       cartCount.innerText = totalItens;
-
-      // Lógica do Frete Grátis
-      if (subtotal === 0) {
-        freteAviso.innerHTML = '';
-      } else if (subtotal >= 100) {
-        freteAviso.innerHTML = '<span class="text-green-600">🎉 Frete Grátis alcançado!</span>';
+      cartTotalValue.innerText = formatarMoeda(total);
+      
+      if (total === 0) {
+        shippingNotice.innerText = 'Adicione itens para calcular o frete grátis.';
+        shippingNotice.style.backgroundColor = '#EFE8DC';
+        shippingNotice.style.color = 'var(--brown-accent)';
+      } else if (total >= 100) {
+        shippingNotice.innerText = '🎉 Você ganhou FRETE GRÁTIS!';
+        shippingNotice.style.backgroundColor = '#E2F0D9';
+        shippingNotice.style.color = '#385623';
       } else {
-        const falta = (100 - subtotal).toFixed(2).replace('.', ',');
-        freteAviso.innerHTML = `Faltam R$ ${falta} para Frete Grátis!`;
+        const falta = 100 - total;
+        shippingNotice.innerText = `Faltam ${formatarMoeda(falta)} para FRETE GRÁTIS`;
+        shippingNotice.style.backgroundColor = '#EFE8DC';
+        shippingNotice.style.color = 'var(--brown-accent)';
       }
     }
 
-    // 6. Máscara Automática do CEP
-    const inputCep = document.getElementById('cep-carrinho');
-    inputCep.addEventListener('input', function (e) {
-      let valor = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
-      if (valor.length > 5) {
-        valor = valor.replace(/^(\d{5})(\d)/, '$1-$2'); // Coloca o traço
-      }
-      e.target.value = valor;
-    });
+    function abrirCarrinho() {
+      document.getElementById('cartOverlay').style.display = 'flex';
+    }
 
-    // 7. Validação e Envio para o WhatsApp
+    function fecharCarrinho() {
+      document.getElementById('cartOverlay').style.display = 'none';
+    }
+
+    // Máscara Automática do CEP
+    const inputCep = document.getElementById('cep-carrinho');
+    if (inputCep) {
+      inputCep.addEventListener('input', function (e) {
+        let valor = e.target.value.replace(/\D/g, '');
+        if (valor.length > 5) {
+          valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+        }
+        e.target.value = valor;
+      });
+    }
+
     function finalizarCompraWhatsApp() {
       if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio.");
+        alert("Seu carrinho está vazio. Adicione algum café antes de finalizar!");
         return;
       }
 
       const cepCliente = document.getElementById('cep-carrinho').value;
       
-      // Validação Estrita do CEP (Exatamente 9 caracteres: 8 números + 1 traço)
+      // Validação estrita do CEP (9 caracteres exigidos)
       if (cepCliente.length !== 9) {
         alert("Por favor, digite um CEP válido e completo (ex: 88495-000) para calcularmos o frete.");
         document.getElementById('cep-carrinho').focus();
         return; 
       }
 
-      // Montagem da Mensagem
-      let texto = "Olá, Atlas Café! Gostaria de finalizar o meu pedido. ☕\n\n";
-      texto += "*Resumo do Pedido:*\n";
-
-      let subtotal = 0;
-      carrinho.forEach(item => {
-        const totalItem = item.preco * item.quantidade;
-        subtotal += totalItem;
-        texto += `- ${item.quantidade}x ${item.nome} (${item.tamanho}) | Moagem: ${item.moagem} | R$ ${totalItem.toFixed(2).replace('.', ',')}\n`;
-      });
-
-      texto += `\n*Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+      let total = 0;
+      let resumoPedidos = "Olá, Atlas Café! Gostaria de finalizar minha encomenda:\n\n";
       
-      if (subtotal >= 100) {
-        texto += "*Frete Grátis alcançado!* 🎉\n";
+      carrinho.forEach(item => {
+        const subtotal = item.preco * item.qtd;
+        total += subtotal;
+        resumoPedidos += `☕ *${item.qtd}x ${item.produto}* (${item.emb})\n`;
+        resumoPedidos += `   Moagem: ${item.moagem}\n`;
+        resumoPedidos += `   Subtotal: ${formatarMoeda(subtotal)}\n\n`;
+      });
+      
+      resumoPedidos += `*TOTAL DOS PRODUTOS: ${formatarMoeda(total)}*\n`;
+      
+      if (total >= 100) {
+        resumoPedidos += `✅ *Elegível para FRETE GRÁTIS!*\n`;
+      } else {
+        resumoPedidos += `📦 (Aguardando cálculo de frete / Retirada)\n`;
       }
 
-      texto += `\n*Meu CEP para envio:* ${cepCliente}\n\n`;
-      texto += "Aguardo o total com frete e o link do Mercado Pago.";
+      resumoPedidos += `\n*Meu CEP para envio:* ${cepCliente}\n\n`;
+      resumoPedidos += `Aguardo o total com frete e o link de pagamento.`;
 
-      // Substitua pelo número real da Atlas Café
-      const numeroWhatsApp = "5548999999999"; 
-      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-
-      // Abre o WhatsApp
-      window.open(url, '_blank');
+      const fone = "5551985587732";
+      window.open(`https://wa.me/${fone}?text=${encodeURIComponent(resumoPedidos)}`, '_blank');
     }
   </script>
 </body>
