@@ -175,7 +175,7 @@
       font-weight: 400;
     }
 
-    /* GUIA DO BARISTA TÉCNICO E FIDELIZADO À EMBALAGEM */
+    /* GUIA DO BARISTA */
     .barista-card {
       background-color: #FFFFFF;
       border: 1px solid var(--border-subtle);
@@ -204,15 +204,77 @@
       margin-top: 4px;
     }
 
-    /* PAINEL TÉCNICO DE EXTRAÇÃO (DA EMBALAGEM) */
-    .recipe-box {
-      background-color: var(--bg-card-light);
+    /* SISTEMA DE ACCORDION (CAIXAS RECOLHÍVEIS) */
+    details.method-box {
+      background-color: #FFFFFF;
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      padding: 18px 15px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
+    details.method-box summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      list-style: none; /* Remove a seta padrão do navegador */
+      position: relative;
+    }
+
+    details.method-box summary::-webkit-details-marker {
+      display: none; /* Remove seta no Safari */
+    }
+
+    details.method-box summary::after {
+      content: '+';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--brown-accent);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    details.method-box[open] summary::after {
+      content: '−'; /* Sinal de menos quando aberto */
+    }
+
+    details.method-box[open] summary {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .summary-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 20px; /* Dá espaço para o ícone de + ou - */
+    }
+
+    .method-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .method-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: #EFE8DC;
+      padding: 3px 8px;
+      border-radius: 3px;
+      color: var(--brown-top);
+      text-transform: uppercase;
+    }
+
+    .method-content {
+      padding: 18px 16px;
+      background-color: var(--bg-card-light);
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    /* ELEMENTOS DA RECEITA DENTRO DO ACCORDION */
     .recipe-header {
       font-size: 0.78rem;
       font-weight: 700;
@@ -250,47 +312,9 @@
     }
 
     .recipe-instruction {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-      text-align: center;
-    }
-
-    .method-box {
-      background-color: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 12px 16px;
-      margin-bottom: 10px;
-    }
-
-    .method-box-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-
-    .method-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-
-    .method-tag {
-      font-size: 0.65rem;
-      font-weight: 700;
-      background: #EFE8DC;
-      padding: 3px 8px;
-      border-radius: 3px;
-      color: var(--brown-top);
-      text-transform: uppercase;
-    }
-
-    .method-details {
       font-size: 0.8rem;
       color: var(--text-muted);
+      line-height: 1.5;
     }
 
     /* SEÇÃO DE PRODUTOS */
@@ -592,62 +616,113 @@
     <div class="barista-card">
       <div class="barista-header">
         <span class="barista-subtitle">Guia do Barista</span>
-        <h2 class="barista-title">O Ritual de Preparo</h2>
+        <h2 class="barista-title">Descubra como melhorar seu Ritual de Preparo</h2>
       </div>
 
-      <!-- PAINEL DE EXTRAÇÃO BASEADO NA EMBALAGEM -->
-      <div class="recipe-box">
-        <div class="recipe-header">
-          <span>Sugestão de Preparo</span>
-          <span>150 ml</span>
+      <!-- COADOS -->
+      <details class="method-box" open>
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Coados (V60, Melitta)</span>
+            <span class="method-tag">Média</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-header">
+            <span>Sugestão de Preparo</span>
+            <span>150 ml</span>
+          </div>
+          <div class="recipe-grid">
+            <div>
+              <div class="recipe-item-label">Água</div>
+              <div class="recipe-item-val">92°C</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Dose</div>
+              <div class="recipe-item-val">10g</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Proporção</div>
+              <div class="recipe-item-val">1:15</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Tempo</div>
+              <div class="recipe-item-val">2:30–3:00</div>
+            </div>
+          </div>
+          <p class="recipe-instruction" style="text-align: center;">
+            Pré-infusão de 30–40s com 40ml. Despeje com movimentos circulares e constantes até finalizar.
+          </p>
         </div>
-        <div class="recipe-grid">
-          <div>
-            <div class="recipe-item-label">Água</div>
-            <div class="recipe-item-val">92°C</div>
-          </div>
-          <div>
-            <div class="recipe-item-label">Dose</div>
-            <div class="recipe-item-val">10g</div>
-          </div>
-          <div>
-            <div class="recipe-item-label">Proporção</div>
-            <div class="recipe-item-val">1:15</div>
-          </div>
-          <div>
-            <div class="recipe-item-label">Tempo</div>
-            <div class="recipe-item-val">2:30–3:00</div>
-          </div>
-        </div>
-        <p class="recipe-instruction">
-          Pré-infusão de 30–40s com 40ml. Despeje com movimentos circulares e constantes até finalizar.
-        </p>
-      </div>
+      </details>
 
-      <!-- GUIA DE MOAGENS / MÉTODOS -->
-      <div class="method-box">
-        <div class="method-box-header">
-          <span class="method-name">Fina / Pressão</span>
-          <span class="method-tag">Espresso / Moka</span>
+      <!-- ESPRESSO -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Espresso</span>
+            <span class="method-tag">Fina</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-grid">
+            <div>
+              <div class="recipe-item-label">Dose</div>
+              <div class="recipe-item-val">19g</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Extração</div>
+              <div class="recipe-item-val">38ml</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Proporção</div>
+              <div class="recipe-item-val">1:2</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Tempo</div>
+              <div class="recipe-item-val">25–27s</div>
+            </div>
+          </div>
         </div>
-        <div class="method-details">Para cafeteiras italianas e espresso (proporções mais concentradas de 1:2 a 1:3).</div>
-      </div>
+      </details>
 
-      <div class="method-box">
-        <div class="method-box-header">
-          <span class="method-name">Média / Coados</span>
-          <span class="method-tag">Filtrados</span>
+      <!-- MOKA -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Moka (Italiana)</span>
+            <span class="method-tag">Fina</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <p class="recipe-instruction">
+            <strong>Proporção 1:10.</strong> Preencha o cesto de pó sem compactar e complete a base com água até o limite da válvula de segurança.
+          </p>
         </div>
-        <div class="method-details">V60, Melitta, Chemex, Aeropress, Kalita Wave (ideal para 1:15).</div>
-      </div>
+      </details>
 
-      <div class="method-box">
-        <div class="method-box-header">
-          <span class="method-name">Grossa / Infusão</span>
-          <span class="method-tag">Imersão</span>
+      <!-- IMERSÃO (PRENSA E COLD BREW) -->
+      <details class="method-box">
+        <summary>
+          <div class="summary-inner">
+            <span class="method-name">Imersão</span>
+            <span class="method-tag">Grossa</span>
+          </div>
+        </summary>
+        <div class="method-content">
+          <div class="recipe-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
+            <div>
+              <div class="recipe-item-label">Prensa Francesa</div>
+              <div class="recipe-item-val">1:15</div>
+            </div>
+            <div>
+              <div class="recipe-item-label">Cold Brew</div>
+              <div class="recipe-item-val">1:10</div>
+            </div>
+          </div>
         </div>
-        <div class="method-details">Prensa Francesa e Cold Brew (café gelado).</div>
-      </div>
+      </details>
+
     </div>
 
   </main>
